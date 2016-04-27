@@ -9,6 +9,7 @@ all:
 	ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 	ln -sf ~/.dotfiles/.gitignore_global ~/.gitignore_global
 	ln -sf ~/.dotfiles/.bash_alias ~/.bash_alias
+	ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
 
 mac: all
 	echo "Hello MacOS!"

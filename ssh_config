@@ -1,0 +1,20 @@
+#
+# NOTE: THIS FILE EXISTS ON GITHUB
+#
+# DO NOT PUT PASSWORDS IN THIS FILE
+#
+
+
+host nohuddle
+  HostName 162.243.125.67
+  User root
+
+host rosefire
+  HostName rosefire.csse.rose-hulman.edu
+  User csse
+
+host plc
+  HostName plc.csse.rose-hulman.edu
+
+host plc-dev
+  HostName plc-dev.csse.rose-hulman.edu
