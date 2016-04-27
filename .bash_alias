@@ -2,6 +2,7 @@
 # Alias
 alias projects='cd ~/workspaces'
 alias goproject='cd ~/workspaces/golang/src/github.com/rockwotj'
+alias l='ls -CF'
 alias ls='ls -GFh'
 alias lah='ls -lah'
 alias vi='nvim'
