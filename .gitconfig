@@ -1,0 +1,16 @@
+# This is Git's per-user configuration file.
+[core]
+# Please adapt and uncomment the following lines:
+	user = rockwotj
+	email = rockwotj@gmail.com
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+[user]
+	name = Tyler Rockwood
+	email = rockwotj@gmail.com
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
