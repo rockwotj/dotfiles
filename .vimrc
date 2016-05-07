@@ -1,57 +1,42 @@
 if &compatible
   set nocompatible               " Be iMproved
 endif
+filetype off
 
 " Required:
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin('~/.config/nvim/bundle')
+call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 
 " Add or remove your plugins here:
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/neosnippet-snippets'
-
-Plugin 'ctrlpvim/ctrlp.vim' 
-Plugin 'Shougo/vimshell' 
-Plugin 'majutsushi/tagbar' 
 Plugin 'sheerun/vim-polyglot' 
-Plugin 'fatih/vim-go' 
 Plugin 'scrooloose/nerdtree' 
-"Plugin 'Shougo/deoplete.nvim' 
-"Plugin 'zchee/deoplete-go', {'build': {'unix': 'make'}} 
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'rockwotj/vim-snippets'
 Plugin 'vim-airline/vim-airline' 
 Plugin 'vim-airline/vim-airline-themes' 
 Plugin 'dylanaraps/taskrunner.nvim' 
 Plugin 'vim-scripts/BufOnly.vim' 
-Plugin 'runoshun/vim-alloy' 
 Plugin 'crusoexia/vim-monokai'
 
-call vundle#end()            " required
+call vundle#end()
 
 "Syntax
 syntax on
 filetype plugin indent on
 
-command Alloy !java -cp /Users/rockwotj/Applications/Alloy4.2_2015-02-22.app/Contents/Resources/Java/alloy4.2_2015-02-22.jar edu.mit.csail.sdg.alloy4whole.ExampleUsingTheCompiler '%:p'
-command Yices !/Users/rockwotj/eclipse/yices-2.4.2/bin/yices '%:p'
-autocmd BufNewFile,BufRead *.ys   set syntax=lisp
-
-
-tnoremap <Esc> <C-\><C-n>
-
 "Auto commands
 autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 set number
-
-
-syntax on                  " Enable syntax highlighting.
 
 set autoindent             " Indent according to previous line.
 set expandtab              " Use spaces instead of tabs.
@@ -109,9 +94,12 @@ hi NERDTreeDirSlash ctermfg=197
 
 let python_highlight_all = 1
 let python_version_2 = 1
+let g:neocomplete#enable_at_startup = 1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#align_class = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:taskrunner#focus_on_open = 1
-"let g:polyglot_disabled = ['']
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 

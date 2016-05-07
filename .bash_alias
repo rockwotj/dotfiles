@@ -12,5 +12,5 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   alias ls='ls -GFh --color=auto'
   alias lah='ls -lah --color=auto'
 fi
-alias vi='nvim'
+alias vi='vim'
 
