@@ -2,15 +2,18 @@
 # Alias
 alias projects='cd ~/workspaces'
 alias goproject='cd ~/workspaces/golang/src/github.com/rockwotj'
+alias vi='vim'
 if [ "$(uname)" == "Darwin" ]; then
   alias l='ls -CF'
   alias ls='ls -GFh'
   alias lah='ls -lah'
+elif [ "$(uname -a | cut -d " " -f2)" == "raspberrypi" ]; then
+  alias l='ls -CF --color=auto'
+  alias ls='ls -GFh --color=auto'
+  alias lah='ls -lah --color=auto'
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    # Do something under GNU/Linux platform
   alias l='ls -CF --color=auto'
   alias ls='ls -GFh --color=auto'
   alias lah='ls -lah --color=auto'
 fi
-alias vi='vim'
 
