@@ -3,7 +3,7 @@
 # Please adapt and uncomment the following lines:
 	user = rockwotj
 	email = rockwotj@gmail.com
-	editor = nvim
+	editor = vim
 	excludesfile = ~/.gitignore_global
 [user]
 	name = Tyler Rockwood
