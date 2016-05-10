@@ -8,6 +8,8 @@
 [user]
 	name = Tyler Rockwood
 	email = rockwotj@gmail.com
+[alias]
+      co = checkout
 [push]
 	default = simple
 [filter "lfs"]
