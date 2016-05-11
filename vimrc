@@ -33,9 +33,9 @@ syntax on
 filetype plugin indent on
 
 "Auto commands
-autocmd vimenter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd vimenter * NERDTree
+"autocmd VimEnter * wincmd p
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 set number
 
@@ -93,13 +93,20 @@ hi NERDTreeDir ctermfg=197
 hi NERDTreeDirSlash ctermfg=197
 " === END THEMES ===
 
+let g:snips_email = "rockwotj@gmail.com"
+let g:snips_github = "https://github.com/rockwotj"
+let g:snips_author = "Tyler Rockwood"
+
 let python_highlight_all = 1
 let python_version_2 = 1
+
 let g:neocomplete#enable_at_startup = 1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#align_class = 1
 let g:airline#extensions#tabline#enabled = 1
+
 let g:taskrunner#focus_on_open = 1
+
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
