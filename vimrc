@@ -24,6 +24,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'dylanaraps/taskrunner.nvim' 
 Plugin 'vim-scripts/BufOnly.vim' 
 Plugin 'crusoexia/vim-monokai'
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 
