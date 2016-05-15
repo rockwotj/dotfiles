@@ -11,8 +11,25 @@
   signingkey = D8835D64
 [alias]
   co = checkout
+  # Pretty log for short
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  deep-clone = clone --recursive  
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  # Amend the currently staged files to the latest commit
+  amend = commit --amend --reuse-message=HEAD
+  # Remove branches that have already been merged with master
+  delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+[merge]
+  tool = vimdiff
+[mergetool]
+  prompt = false
+  tool = vimdiff
 [push]
   default = simple
+  followTags = true
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
