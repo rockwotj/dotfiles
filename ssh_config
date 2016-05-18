@@ -4,6 +4,9 @@
 # DO NOT PUT PASSWORDS IN THIS FILE
 #
 
+host pi
+  HostName raspberrypi.local
+  User pi
 
 host nohuddle
   HostName 162.243.125.67

@@ -11,8 +11,9 @@
   signingkey = D8835D64
 [alias]
   co = checkout
+  st = status
   # Pretty log for short
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  lg = log --pretty=oneline -n 20 --graph --abbrev-commit
   deep-clone = clone --recursive  
   # Show verbose output about tags, branches or remotes
   tags = tag -l

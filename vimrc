@@ -23,6 +23,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes' 
 Plugin 'dylanaraps/taskrunner.nvim' 
 Plugin 'vim-scripts/BufOnly.vim' 
+Plugin 'vim-scripts/Rename'
 Plugin 'crusoexia/vim-monokai'
 Plugin 'editorconfig/editorconfig-vim'
 
@@ -35,7 +36,7 @@ filetype plugin indent on
 "Auto commands
 "autocmd vimenter * NERDTree
 "autocmd VimEnter * wincmd p
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 set number
 
