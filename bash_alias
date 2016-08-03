@@ -1,7 +1,6 @@
 # Custom stuff
 # Alias
 alias projects='cd ~/workspaces'
-alias goproject='cd ~/workspaces/golang/src/github.com/rockwotj'
 alias vi='vim'
 if [ "$(uname)" == "Darwin" ]; then
   alias l='ls -CF'

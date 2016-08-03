@@ -8,5 +8,3 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR="vim"
 export PATH="~/.bin:$PATH"
 
-alias vimgo='vim -u ~/.vimrc.go'
-

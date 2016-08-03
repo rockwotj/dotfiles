@@ -1,42 +1,6 @@
 if &compatible
   set nocompatible               " Be iMproved
 endif
-filetype off
-
-" Required:
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-
-" Add or remove your plugins here:
-Plugin 'sheerun/vim-polyglot' 
-Plugin 'scrooloose/nerdtree' 
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'rockwotj/vim-snippets'
-Plugin 'vim-airline/vim-airline' 
-Plugin 'vim-airline/vim-airline-themes' 
-Plugin 'dylanaraps/taskrunner.nvim' 
-Plugin 'vim-scripts/BufOnly.vim' 
-Plugin 'vim-scripts/Rename'
-Plugin 'crusoexia/vim-monokai'
-Plugin 'editorconfig/editorconfig-vim'
-
-call vundle#end()
-
-"Syntax
-syntax on
-filetype plugin indent on
-
-"Auto commands
-"autocmd vimenter * NERDTree
-"autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 set number
 
@@ -69,12 +33,48 @@ set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
 
 set list                   " Show non-printable characters.
+
 if has('multi_byte') && &encoding ==# 'utf-8'
   let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
 else
   let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
+" Required:
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+
+" Add or remove your plugins here:
+Plugin 'sheerun/vim-polyglot' 
+Plugin 'scrooloose/nerdtree' 
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'rockwotj/vim-snippets'
+Plugin 'vim-airline/vim-airline' 
+Plugin 'vim-airline/vim-airline-themes' 
+Plugin 'dylanaraps/taskrunner.nvim' 
+Plugin 'vim-scripts/BufOnly.vim' 
+Plugin 'vim-scripts/Rename'
+Plugin 'crusoexia/vim-monokai'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'fatih/vim-go'
+
+call vundle#end()
+
+"Syntax
+syntax on
+filetype plugin indent on
+
+"Auto commands
+"autocmd vimenter * NERDTree
+"autocmd VimEnter * wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 set exrc
 set secure
 
@@ -111,4 +111,3 @@ let g:taskrunner#focus_on_open = 1
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
