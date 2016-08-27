@@ -10,6 +10,7 @@ all:
 	ln -sf ~/.dotfiles/gitignore_global ~/.gitignore_global
 	ln -sf ~/.dotfiles/bash_alias ~/.bash_aliases
 	ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
+	ln -sf ~/.dotfiles/tmux.conf ~/.tmux.conf
 
 mac: all
 	echo "Hello MacOS!"

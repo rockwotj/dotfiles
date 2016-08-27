@@ -63,6 +63,7 @@ Plugin 'vim-scripts/Rename'
 Plugin 'crusoexia/vim-monokai'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'fatih/vim-go'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 
