@@ -8,7 +8,7 @@ all:
 	ln -sf ~/.dotfiles/vimrc ~/.vimrc
 	ln -sf ~/.dotfiles/gitconfig ~/.gitconfig
 	ln -sf ~/.dotfiles/gitignore_global ~/.gitignore_global
-	ln -sf ~/.dotfiles/bash_alias ~/.bash_alias
+	ln -sf ~/.dotfiles/bash_alias ~/.bash_aliases
 	ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
 
 mac: all
