@@ -69,7 +69,6 @@ call vundle#end()
 
 "Syntax
 syntax on
-filetype plugin indent on
 
 "Auto commands
 "autocmd vimenter * NERDTree
@@ -111,3 +110,5 @@ let g:taskrunner#focus_on_open = 1
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+filetype plugin indent on
