@@ -11,6 +11,8 @@ all:
 	ln -sf ~/.dotfiles/bash_alias ~/.bash_aliases
 	ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
 	ln -sf ~/.dotfiles/tmux.conf ~/.tmux.conf
+	mkdir -p ./.git/hooks
+	ln -sf ~/.dotfiles/pre-push ./.git/hooks/pre-push
 
 mac: all
 	echo "Hello MacOS!"

@@ -1,0 +1,4 @@
+if [[ `grep 'google'` ]]; then 
+  echo "You don't want to push this to GitHub! Aborting."
+  exit 1
+fi
