@@ -1,8 +1,7 @@
 # Custom stuff
 # Alias
 alias projects='cd ~/workspaces'
-alias vim='TERM=xterm-256color vim'
-alias vi='TERM=xterm-256color vim'
+alias vi='vim'
 if [ "$(uname)" == "Darwin" ]; then
   alias l='ls -CF'
   alias ls='ls -GFh'
