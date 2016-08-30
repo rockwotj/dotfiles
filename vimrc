@@ -40,6 +40,10 @@ else
   let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+
 " Required:
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
