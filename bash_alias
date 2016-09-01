@@ -14,5 +14,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   alias l='ls -CF --color=auto'
   alias ls='ls -GFh --color=auto'
   alias lah='ls -lah --color=auto'
+  alias tmux="TERM=screen-256color-bce tmux"
+  alias xclip="xclip -selection c"
 fi
 
