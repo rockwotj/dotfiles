@@ -14,6 +14,7 @@ all:
 	mkdir -p ./.git/hooks
 	ln -sf ~/.dotfiles/pre-push ./.git/hooks/pre-push
 	chmod +x ./.git/hooks/pre-push
+	ln -sf ~/.dotfiles/env ~/.env
 
 mac: all
 	echo "Hello MacOS!"
