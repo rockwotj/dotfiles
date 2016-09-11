@@ -2,6 +2,7 @@
 # Alias
 alias projects='cd ~/workspaces'
 alias vi='vim'
+alias tmux='TERM=xterm-256color tmux'
 if [ "$(uname)" == "Darwin" ]; then
   alias l='ls -CF'
   alias ls='ls -GFh'
