@@ -71,6 +71,14 @@ Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 
+fun! TrimWhitespace()
+  let l:save = winsaveview()
+  %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+
+command! TrimWhitespace call TrimWhitespace()
+
 "Syntax
 syntax on
 
