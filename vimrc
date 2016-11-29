@@ -89,6 +89,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 set exrc
 set secure
 
+au BufRead,BufNewFile WORKSPACE set filetype=python
+au BufRead,BufNewFile BUILD set filetype=python
+au BufRead,BufNewFile *.bzl set filetype=python
+
+
 " I always mistype these...
 command WQ wq
 command Wq wq
