@@ -21,6 +21,11 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   alias open-dir="xdg-open . > /dev/null 2>&1 &"
 fi
 
-j () {
-  cd ~/Workspaces/$1;
+# See https://github.com/rockwotj/jump
+function j() {
+  OUTPUT=`jump $@`
+  if [ $? -eq 0 ]
+    then cd "$OUTPUT"
+    else echo "$OUTPUT"
+  fi
 }
