@@ -10,6 +10,10 @@ set softtabstop =2         " Tab key indents by 2 spaces.
 set shiftwidth  =2         " >> indents by 2 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
 
+" Use only real tabs for golang, make
+autocmd FileType go set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+
 set backspace   =indent,eol,start  " Make backspace work as you would expect.
 set hidden                 " Switch between buffers without having to save first.
 set laststatus  =2         " Always show statusline.
@@ -32,13 +36,14 @@ set wrapscan               " Searches wrap around end-of-file.
 set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
 
-"set list                   " Show non-printable characters.
+" This is annoying all the time, but is useful for debugging.
+" set list                   " Show non-printable characters.
 
-"if has('multi_byte') && &encoding ==# 'utf-8'
-"  let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
-"else
-"  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
-"endif
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
+else
+  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+endif
 
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
@@ -82,9 +87,9 @@ command! TrimWhitespace call TrimWhitespace()
 "Syntax
 syntax on
 
-"Auto commands
-"autocmd vimenter * NERDTree
-"autocmd VimEnter * wincmd p
+" Auto commands
+" autocmd vimenter * NERDTree
+" autocmd VimEnter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 set exrc
 set secure

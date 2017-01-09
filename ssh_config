@@ -5,7 +5,7 @@
 #
 
 host pi
-  HostName raspberrypi.local
+  HostName home.local
   User pi
 
 host rosefire
