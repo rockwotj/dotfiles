@@ -8,7 +8,8 @@
 [user]
   name = Tyler Rockwood
   email = rockwotj@gmail.com
-  signingkey = 8932D18F4C542478
+[include]
+  path = .gitlocalconfig
 [alias]
   co = checkout
   st = status
