@@ -59,7 +59,7 @@ def zsh(config, home):
 
 def main():
     global FLAGS
-    print("Starting boostrap...")
+    print("Starting bootstrap...")
     FLAGS = PARSER.parse_args()
 
     config = os.path.dirname(os.path.abspath(__file__))
