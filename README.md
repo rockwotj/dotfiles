@@ -4,10 +4,7 @@ Just all of my dotfiles
 
 ## Usage
 
-Clone the repo via `git clone git@github.com:rockwotj/dotfiles.git ~/.dotfiles`
+Clone the repo via `git clone --recurse-submodules -j8 git@github.com:rockwotj/dotfiles.git`
 
-Checkout the makefile for more details.
-`make mac` or `make ubuntu` should do
-the trick.
-
+Then run `./bootstrap.py`
 
