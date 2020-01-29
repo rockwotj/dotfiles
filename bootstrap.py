@@ -43,8 +43,11 @@ def nvim(config, home):
             "{}/nvim/vimrc".format(config),
             "{}/.config/nvim/init.vim".format(home))
     symlink(
-            "{}/nvim/pack".format(config),
-            "{}/.local/share/nvim/site/pack".format(home))
+            "{}/nvim/autoplugins".format(config),
+            "{}/.local/share/nvim/site/pack/plugins/start".format(home))
+    symlink(
+            "{}/nvim/lazyplugins".format(config),
+            "{}/.local/share/nvim/site/pack/plugins/opt".format(home))
 
 def zsh(config, home):
     symlink(

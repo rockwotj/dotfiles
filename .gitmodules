@@ -1,0 +1,3 @@
+[submodule "nvim/autoplugins/vim-tmux-navigator"]
+	path = nvim/autoplugins/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
