@@ -8,7 +8,7 @@
 [user]
   name = Tyler Rockwood
   email = rockwotj@gmail.com
-  signingkey = 042CE6F6BD58D3B5
+  signingkey = 8932D18F4C542478
 [alias]
   co = checkout
   st = status
