@@ -32,6 +32,9 @@ def git(config, home):
     symlink(
             "{}/git/gitconfig".format(config),
             "{}/.gitconfig".format(home))
+    symlink(
+            "{}/git/gitignore_global".format(config),
+            "{}/.gitignore_global".format(home))
 
 def tmux(config, home):
     symlink(
