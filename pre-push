@@ -1,7 +1,0 @@
-if [[ `grep 'google'` ]]; then 
-  if [[ "$1" = "google" ]]; then
-    exit 0
-  fi
-  echo "You don't want to push this to GitHub! Aborting."
-  exit 1
-fi

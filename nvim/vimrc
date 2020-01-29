@@ -49,33 +49,6 @@ if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
 
-" Required:
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-
-" Add or remove your plugins here:
-Plugin 'sheerun/vim-polyglot' 
-Plugin 'scrooloose/nerdtree' 
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'rockwotj/vim-snippets'
-Plugin 'vim-airline/vim-airline' 
-Plugin 'vim-airline/vim-airline-themes' 
-Plugin 'vim-scripts/BufOnly.vim' 
-Plugin 'vim-scripts/Rename'
-Plugin 'crusoexia/vim-monokai'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'fatih/vim-go'
-Plugin 'christoomey/vim-tmux-navigator'
-
-call vundle#end()
-
 fun! TrimWhitespace()
   let l:save = winsaveview()
   %s/\s\+$//e
@@ -87,50 +60,13 @@ command! TrimWhitespace call TrimWhitespace()
 "Syntax
 syntax on
 
-" Auto commands
-" autocmd vimenter * NERDTree
-" autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 set exrc
 set secure
-
-au BufRead,BufNewFile WORKSPACE set filetype=python
-au BufRead,BufNewFile BUILD set filetype=python
-au BufRead,BufNewFile *.bzl set filetype=python
-
 
 " I always mistype these...
 command WQ wq
 command Wq wq
 command W w
 command Q q
-
-" === THEMES ===
-
-" Monokai Theme
-let g:monokai_thick_border=1
-colorscheme monokai
-let g:airline_theme="murmur"
-hi NERDTreeDir ctermfg=197
-hi NERDTreeDirSlash ctermfg=197
-" === END THEMES ===
-
-let g:snips_email = "rockwotj@gmail.com"
-let g:snips_github = "https://github.com/rockwotj"
-let g:snips_author = "Tyler Rockwood"
-
-let python_highlight_all = 1
-let python_version_2 = 1
-
-let g:neocomplete#enable_at_startup = 1
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#align_class = 1
-let g:airline#extensions#tabline#enabled = 1
-
-let g:taskrunner#focus_on_open = 1
-
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 filetype plugin indent on
