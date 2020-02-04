@@ -16,6 +16,7 @@
   # Pretty log for short
   lg = log --pretty=oneline -n 20 --graph --abbrev-commit
   deep-clone = clone --recursive  
+  push = push -u
   # Show verbose output about tags, branches or remotes
   tags = tag -l
   branches = branch -a
@@ -30,7 +31,7 @@
   prompt = false
   tool = vimdiff
 [push]
-  default = simple
+  default = upstream
   followTags = true
 [filter "lfs"]
   clean = git-lfs clean %f
