@@ -2,6 +2,10 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+if !empty($ALACRITTY_LOG)
+  set termguicolors
+endif
+
 set number
 
 set autoindent             " Indent according to previous line.
