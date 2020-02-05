@@ -1,3 +1,6 @@
 [submodule "nvim/autoplugins/vim-tmux-navigator"]
 	path = nvim/autoplugins/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "nvim/autoplugins/vim-polyglot"]
+	path = nvim/autoplugins/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
