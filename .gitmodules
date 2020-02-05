@@ -4,3 +4,10 @@
 [submodule "nvim/autoplugins/vim-polyglot"]
 	path = nvim/autoplugins/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "nvim/autoplugins/coc.nvim"]
+	path = nvim/autoplugins/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+	branch = release
+[submodule "nvim/autoplugins/deep-challenger-theme"]
+	path = nvim/autoplugins/deep-challenger-theme
+	url = https://github.com/challenger-deep-theme/vim
