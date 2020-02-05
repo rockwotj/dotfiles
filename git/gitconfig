@@ -25,6 +25,10 @@
   amend = commit --amend --reuse-message=HEAD
   # Remove branches that have already been merged with master
   delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  # Delete all branches except master and the current branch
+  delete-all-branches = "!f(){\
+        git branch | grep -v "master" | grep -v ^* | xargs git branch -D;\
+    }; f"
 [merge]
   tool = vimdiff
 [mergetool]
