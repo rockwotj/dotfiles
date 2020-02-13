@@ -70,6 +70,11 @@ def zsh(config, home):
             "{}/.zsh/completion".format(home))
     check_call(["mkdir", "-p", "{}/.zsh/cache/".format(home)])
 
+def hg(config, home):
+    symlink(
+            "{}/hg/hgrc".format(config),
+            "{}/.hgrc".format(home))
+
 def main():
     global FLAGS
     print("Starting bootstrap...")
@@ -82,6 +87,7 @@ def main():
     tmux(config, home)
     nvim(config, home)
     zsh(config, home)
+    hg(config, home)
 
     print("done!")
 
