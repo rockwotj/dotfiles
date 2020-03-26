@@ -14,3 +14,6 @@
 [submodule "nvim/autoplugins/ctrlp.vim"]
 	path = nvim/autoplugins/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "nvim/autoplugins/vim-jsonnet"]
+	path = nvim/autoplugins/vim-jsonnet
+	url = https://github.com/google/vim-jsonnet.git
