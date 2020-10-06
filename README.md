@@ -1,6 +1,6 @@
 # My Dotfiles
 
-Just all of my dotfiles
+Just all of my dotfiles :)
 
 ## Usage
 
