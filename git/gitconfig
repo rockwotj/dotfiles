@@ -20,6 +20,7 @@
   # Show verbose output about tags, branches or remotes
   tags = tag -l
   branches = branch -a
+  br = "!git for-each-ref refs/heads --color=always --sort -committerdate --format='%(HEAD)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);%(contents:subject);%(color:green)(%(committerdate:relative))%(color:blue);<%(authorname)>' | column -t -s ';'"
   remotes = remote -v
   # Amend the currently staged files to the latest commit
   amend = commit --amend --reuse-message=HEAD
@@ -45,7 +46,5 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
-[help]
-  autocorrect = 5
 [commit]
   gpgsign = true
