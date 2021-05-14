@@ -11,6 +11,7 @@
 [include]
   path = .gitlocalconfig
 [alias]
+  sync = fetch --prune
   co = checkout
   st = status
   # Pretty log for short
@@ -27,12 +28,10 @@
   # Remove branches that have already been merged with master
   delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
   # Delete all branches except master and the current branch
-  delete-all-branches = "!f(){\
-      git branch | grep -v "master" | grep -v ^* | xargs git branch -D;\
-    }; f"
+  cleanup-branches = "!sh $(dirname \"$(readlink $HOME/.gitconfig)\")/cleanup-branches.sh"
   # Template for creating a new branch from master
-  create-branch = "!f(){\
-      git co master && git co -b rockwood/$1 && git push -u origin rockwood/$1;\
+  cb = "!f(){\
+      git co master && git co -b rockwood/$1;\
     }; f"
 [merge]
   tool = vimdiff
