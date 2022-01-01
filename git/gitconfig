@@ -1,8 +1,5 @@
 # This is Git's per-user configuration file.
 [core]
-# Please adapt and uncomment the following lines:
-  user = rockwotj
-  email = rockwotj@gmail.com
   editor = vim
   excludesfile = ~/.gitignore_global
 [user]
@@ -47,3 +44,7 @@
   required = true
 [commit]
   gpgsign = true
+[gpg]
+	program = gpg
+[init]
+	defaultBranch = main

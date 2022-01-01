@@ -17,3 +17,6 @@
 [submodule "nvim/autoplugins/vim-jsonnet"]
 	path = nvim/autoplugins/vim-jsonnet
 	url = https://github.com/google/vim-jsonnet.git
+[submodule "nvim/autoplugins/gleam.vim"]
+	path = nvim/autoplugins/gleam.vim
+	url = https://github.com/gleam-lang/gleam.vim
