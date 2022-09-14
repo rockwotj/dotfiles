@@ -208,3 +208,7 @@ colorscheme challenger_deep
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_root_markers = ['.git', 'package.json', 'WORKSPACE']
 
+" Uppercase Y copies to system clipboard
+nnoremap Y "+y
+vnoremap Y "+y
+nnoremap yY ^"+y$
