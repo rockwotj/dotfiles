@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [core]
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore_global
 [user]
   name = Tyler Rockwood
