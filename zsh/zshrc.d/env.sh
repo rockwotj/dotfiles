@@ -8,5 +8,8 @@ fi
 if [[ -d $HOME/Workspace/dotfiles/bin ]]; then
   export PATH=$PATH:$HOME/Workspace/dotfiles/bin;
 fi
+if [[ -d $HOME/.bin ]]; then
+  export PATH=$PATH:$HOME/.bin;
+fi
 export BIT_THEME=monochrome
 
