@@ -31,6 +31,13 @@ def symlink(src, dest):
     print("symlinking {} to {}".format(src, dest))
     os.symlink(src, dest)
 
+def cp(src, dest):
+    container = os.path.dirname(dest)
+    if not os.path.isdir(container):
+        os.makedirs(container)
+    print("copying {} to {}".format(src, dest))
+    shutil.copyfile(src, dest)
+
 def check_call(cmd):
     print("running {}...".format(" ".join(cmd)))
     subprocess.check_call(cmd)
@@ -82,8 +89,8 @@ def alacritty(config, home):
 
 def fonts(config, home):
     check_call(["mkdir", "-p", "{}/Library/Fonts".format(home)])
-    for file in glob("{}/fonts".format(config)):
-        shutil.copyfile(file, "{}/Library/Fonts/{}".format(home, path.basename(file)))
+    for file in glob("{}/fonts/*".format(config)):
+        cp(file, "{}/Library/Fonts/{}".format(home, path.basename(file)))
 
 def main():
     global FLAGS
