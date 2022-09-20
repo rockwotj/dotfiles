@@ -3,6 +3,8 @@
 import argparse
 import os
 import subprocess
+from glob import glob
+from os import path
 
 PARSER = argparse.ArgumentParser(description = "Bootstrap personal config")
 PARSER.add_argument(
@@ -77,6 +79,11 @@ def alacritty(config, home):
                 "{}/alacritty/{}".format(config, file),
                 "{}/.config/alacritty/{}".format(home, file))
 
+def fonts(config, home):
+    check_call(["mkdir", "-p", "{}/Library/Fonts".format(home)])
+    for file in glob("{}/fonts".format(config)):
+        shutil.copyfile(file, "{}/Library/Fonts/{}".format(home, path.basename(file)))
+
 def main():
     global FLAGS
     print("Starting bootstrap...")
@@ -89,6 +96,8 @@ def main():
     tmux(config, home)
     nvim(config, home)
     zsh(config, home)
+    alacritty(config, home)
+    fonts(config, home)
 
     print("done!")
 
