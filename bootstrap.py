@@ -70,10 +70,12 @@ def zsh(config, home):
             "{}/.zsh/completion".format(home))
     check_call(["mkdir", "-p", "{}/.zsh/cache/".format(home)])
 
-def hg(config, home):
-    symlink(
-            "{}/hg/hgrc".format(config),
-            "{}/.hgrc".format(home))
+def alacritty(config, home):
+    check_call(["mkdir", "-p", "{}/.config/alacritty/".format(home)])
+    for file in ["alacritty.yml", "smoooooth.yml"]:
+        symlink(
+                "{}/alacritty/{}".format(config, file),
+                "{}/.config/alacritty/{}".format(home, file))
 
 def main():
     global FLAGS
@@ -87,7 +89,6 @@ def main():
     tmux(config, home)
     nvim(config, home)
     zsh(config, home)
-    hg(config, home)
 
     print("done!")
 
