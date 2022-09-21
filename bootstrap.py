@@ -66,6 +66,8 @@ def nvim(config, home):
     symlink(
             "{}/nvim/lazyplugins".format(config),
             "{}/.local/share/nvim/site/pack/plugins/opt".format(home))
+    check_call(["pip3", "install", "neovim"])
+    check_call(["npm", "install", "--global", "neovim"])
 
 def zsh(config, home):
     symlink(

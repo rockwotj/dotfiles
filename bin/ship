@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+
+import subprocess
+from pathlib import Path
+import argparse
+import sys
+
+parser = argparse.ArgumentParser()
+parser.add_argument("service", choices=["frontend", "backend"], required=True)
+args = parser.parse_args()
+
+def notify(title, text):
+    subprocess.run([
+        "osascript",
+        "-e",
+        f"""display notification "{text}" with title "{title}" """
+    ], check=True)
+
+def yes_or_no(question):
+    reply = str(input(question + ' (y/n): ')).lower().strip()
+    if reply[0] == 'y':
+        return True
+    if reply[0] == 'n':
+        return False
+    else:
+        return yes_or_no("Uhhhh... please enter ")
+
+deploy_dir = Path("~/Workspace/deploy-sw").expanduser()
+
+subprocess.check_call([
+    "just",
+    "deploy",
+    args.service,
+    "staging",
+], cwd=str(deploy_dir))
+
+notify("Deployment", f"The {args.service} has been deployed to STAGING")
+
+if not yes_or_no("Is it good to go to prod?"):
+    sys.exit(0)
+
+subprocess.check_call([
+    "just",
+    "deploy",
+    args.service,
+    "prod",
+], cwd=str(deploy_dir))
+
+notify("Deployment", f"The {args.service} has been deployed to PROD")
