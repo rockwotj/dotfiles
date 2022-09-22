@@ -6,7 +6,7 @@ import argparse
 import sys
 
 parser = argparse.ArgumentParser()
-parser.add_argument("service", choices=["frontend", "backend"], required=True)
+parser.add_argument("service", choices=["frontend", "backend"])
 args = parser.parse_args()
 
 def notify(title, text):
@@ -26,6 +26,19 @@ def yes_or_no(question):
         return yes_or_no("Uhhhh... please enter ")
 
 deploy_dir = Path("~/Workspace/deploy-sw").expanduser()
+
+subprocess.check_call([
+    "git",
+    "checkout",
+    "master",
+], cwd=str(deploy_dir))
+
+subprocess.check_call([
+    "git",
+    "pull",
+    "origin",
+    "master",
+], cwd=str(deploy_dir))
 
 subprocess.check_call([
     "just",

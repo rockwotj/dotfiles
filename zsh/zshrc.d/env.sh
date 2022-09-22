@@ -1,8 +1,12 @@
 if [ "$(uname)" = "Darwin" ]; then
   export ANDROID_HOME="$HOME/Library/Android/sdk/"
 fi
+# TODO(rockwood): Remove me when homebrew is completely upgraded.
 if [[ -d /usr/local/opt/ruby/bin ]]; then
   export PATH="/usr/local/opt/ruby/bin:$PATH"
+fi
+if [[ -d /opt/homebrew/opt/ruby/bin ]]; then
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 fi
 # TODO(rockwood): Don't assume where the repo is cloned.
 if [[ -d $HOME/Workspace/dotfiles/bin ]]; then
