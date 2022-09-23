@@ -7,7 +7,7 @@ import argparse
 import sys
 
 parser = argparse.ArgumentParser()
-parser.add_argument("service", choices=["frontend", "backend"])
+parser.add_argument("service", choices=["frontend", "backend", "all"])
 args = parser.parse_args()
 
 def notify(title, text):
