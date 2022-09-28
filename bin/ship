@@ -7,7 +7,7 @@ import argparse
 import sys
 
 parser = argparse.ArgumentParser()
-parser.add_argument("service", choices=["frontend", "backend", "all"])
+parser.add_argument("service", choices=["frontend", "backend", "all", "ios"])
 args = parser.parse_args()
 
 def notify(title, text):
@@ -49,6 +49,33 @@ subprocess.check_call([
     "origin",
     "master",
 ], cwd=str(deploy_dir))
+
+if args.service == 'ios':
+    subprocess.check_call([
+        "gh",
+        "workflow",
+        "run",
+        "--workflow=testflight.yml",
+        "--ref=master",
+    ], cwd=str(deploy_dir))
+    job_id = subprocess.check_output([
+        "gh",
+        "run",
+        "list",
+        "--workflow=testflight.yml",
+        "--user=rockwotj",
+        "--limit=1",
+        "--json=databaseId",
+        "--template={{printf "%.f" (index . 0).databaseId}}",
+    ], cwd=str(deploy_dir), text=True)
+    subprocess.check_call([
+        "gh",
+        "run",
+        "watch",
+        job_id
+    ], cwd=str(deploy_dir))
+    notify("Deployment", f"iOS has been deployed to TESTFLIGHT")
+    sys.exit(0)
 
 subprocess.check_call([
     "just",

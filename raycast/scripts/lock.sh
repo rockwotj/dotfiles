@@ -15,7 +15,7 @@
 # @raycast.authorURL https://github.com/rockwotj
 
 # Close Gather
-tell application "Google Chrome"
+tell application "Google Chrome Beta"
 	set windowList to every tab of every window whose URL starts with "https://app.gather.town"
 	repeat with tabList in windowList
 		set tabList to tabList as any
