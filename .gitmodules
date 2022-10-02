@@ -8,9 +8,6 @@
 	path = nvim/autoplugins/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 	branch = release
-[submodule "nvim/autoplugins/deep-challenger-theme"]
-	path = nvim/autoplugins/deep-challenger-theme
-	url = https://github.com/challenger-deep-theme/vim
 [submodule "nvim/autoplugins/ctrlp.vim"]
 	path = nvim/autoplugins/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
@@ -20,3 +17,6 @@
 [submodule "nvim/autoplugins/gleam.vim"]
 	path = nvim/autoplugins/gleam.vim
 	url = https://github.com/gleam-lang/gleam.vim
+[submodule "nvim/autoplugins/melange"]
+	path = nvim/autoplugins/melange
+	url = https://github.com/savq/melange.git

@@ -29,15 +29,19 @@
   files = !git diff --name-only
   stat = !git diff --stat
 [merge]
-  tool = vimdiff
+  tool = nvimdiff
   conflictstyle = diff3
 [mergetool]
-  prompt = false
-  tool = vimdiff
-[mergetool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  prompt = true
+[mergetool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
 [diff]
   colorMoved = default
+[difftool]
+  prompt = false
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [interactive]
   diffFilter = delta --color-only
 [add.interactive]
