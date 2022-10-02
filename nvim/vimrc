@@ -159,3 +159,5 @@ let g:ctrlp_root_markers = ['.git', 'package.json', 'WORKSPACE']
 nnoremap Y "+y
 vnoremap Y "+y
 nnoremap yY ^"+y$
+
+source $HOME/.config/nvim/init.lua.vim

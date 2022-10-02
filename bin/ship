@@ -66,7 +66,7 @@ if args.service == 'ios':
         "--user=rockwotj",
         "--limit=1",
         "--json=databaseId",
-        "--template={{printf "%.f" (index . 0).databaseId}}",
+        '--template={{printf "%.f" (index . 0).databaseId}}',
     ], cwd=str(deploy_dir), text=True)
     subprocess.check_call([
         "gh",

@@ -61,12 +61,15 @@ def nvim(config, home):
             "{}/nvim/vimrc".format(config),
             "{}/.config/nvim/init.vim".format(home))
     symlink(
+            "{}/nvim/init.lua.vim".format(config),
+            "{}/.config/nvim/init.lua.vim".format(home))
+    symlink(
             "{}/nvim/autoplugins".format(config),
             "{}/.local/share/nvim/site/pack/plugins/start".format(home))
     symlink(
             "{}/nvim/lazyplugins".format(config),
             "{}/.local/share/nvim/site/pack/plugins/opt".format(home))
-    check_call(["pip3", "install", "neovim"])
+    check_call(["pip3", "install", "pynvim"])
     check_call(["npm", "install", "--global", "neovim"])
 
 def zsh(config, home):
@@ -99,8 +102,10 @@ def main():
     print("Starting bootstrap...")
     FLAGS = PARSER.parse_args()
 
-    config = os.path.dirname(os.path.abspath(__file__))
+    config = os.path.dirname(path.abspath(__file__))
     home = os.environ["HOME"]
+
+    check_call(["brew", "bundle", "--file", path.join(config, "Brewfile")])
 
     git(config, home)
     tmux(config, home)

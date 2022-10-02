@@ -2,6 +2,7 @@
 [core]
   editor = nvim
   excludesfile = ~/.gitignore_global
+  pager = delta
 [user]
   name = Tyler Rockwood
   email = rockwotj@gmail.com
@@ -22,19 +23,28 @@
   remotes = remote -v
   # Amend the currently staged files to the latest commit
   amend = commit --amend --reuse-message=HEAD
-  # Remove branches that have already been merged with master
-  delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
   # Delete all branches except master and the current branch
-  cleanup-branches = "!sh $(dirname \"$(readlink $HOME/.gitconfig)\")/cleanup-branches.sh"
-  # Template for creating a new branch from master
-  cb = "!f(){\
-      git co master && git co -b rockwood/$1;\
-    }; f"
+  cleanup = "!sh $(dirname \"$(readlink $HOME/.gitconfig)\")/cleanup-branches.sh"
+  # TODO: For both of these support looking up the PR in the trailer and using that.
+  files = !git diff --name-only
+  stat = !git diff --stat
 [merge]
   tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
   prompt = false
   tool = vimdiff
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[diff]
+  colorMoved = default
+[interactive]
+  diffFilter = delta --color-only
+[add.interactive]
+  useBuiltin = false
+[delta]
+  navigate = true
+  light = false
 [push]
   default = upstream
   followTags = true
