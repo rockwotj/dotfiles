@@ -45,6 +45,7 @@
 [delta]
   navigate = true
   light = false
+  line-numbers = true
 [push]
   default = upstream
   followTags = true

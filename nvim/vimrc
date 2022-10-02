@@ -1,7 +1,3 @@
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
 if !empty($ALACRITTY_LOG)
   set termguicolors
 endif
@@ -65,10 +61,6 @@ else
   let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
-
 fun! TrimWhitespace()
   let l:save = winsaveview()
   %s/\s\+$//e
@@ -79,6 +71,7 @@ command! TrimWhitespace call TrimWhitespace()
 
 "Syntax
 syntax on
+filetype plugin indent on
 
 set exrc
 set secure
@@ -90,14 +83,10 @@ command W w
 command Q q
 command X x " I never use encyption so meh
 
-filetype plugin indent on
-
-
 function! CheckBackSpace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 
 
 " Use tab for trigger completion with characters ahead and navigate.
