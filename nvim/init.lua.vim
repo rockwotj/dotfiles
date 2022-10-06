@@ -2,6 +2,7 @@ lua <<EOF
 
 -- TODO: Start porting config to lua :)
 
-vim.cmd[[colorscheme melange]]
+vim.o.background = "dark"
+vim.cmd[[colorscheme material]]
 
 EOF

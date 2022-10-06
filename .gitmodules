@@ -1,9 +1,6 @@
 [submodule "nvim/autoplugins/vim-tmux-navigator"]
 	path = nvim/autoplugins/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
-[submodule "nvim/autoplugins/vim-polyglot"]
-	path = nvim/autoplugins/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
 [submodule "nvim/autoplugins/coc.nvim"]
 	path = nvim/autoplugins/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
@@ -17,6 +14,9 @@
 [submodule "nvim/autoplugins/gleam.vim"]
 	path = nvim/autoplugins/gleam.vim
 	url = https://github.com/gleam-lang/gleam.vim
-[submodule "nvim/autoplugins/melange"]
-	path = nvim/autoplugins/melange
-	url = https://github.com/savq/melange.git
+[submodule "nvim/autoplugins/nvim-treesitter"]
+	path = nvim/autoplugins/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "nvim/autoplugins/material.nvim"]
+	path = nvim/autoplugins/material.nvim
+	url = https://github.com/marko-cerovac/material.nvim.git

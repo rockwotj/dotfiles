@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+import argparse
+import subprocess
+import os
+
+parser = argparse.ArgumentParser()
+parser.add_argument("file", nargs="?")
+parser.add_argument("--debug", action="store_true")
+args = parser.parse_args()
+
+
+def git(cmd):
+    if args.debug:
+        print("$ git " + " ".join(cmd))
+    return subprocess.check_output(["git", *cmd], text=True).strip()
+
+
+if args.file:
+    with open(args.file, "r+") as f:
+        lines = f.read().splitlines(keepends=True)
+        lines.insert(1, "exec spr land\n")
+        f.seek(0)
+        f.writelines(lines)
+else:
+    master_branch = git(["config", "spr.githubmasterbranch"])
+    merge_base = git(["merge-base", f"origin/{master_branch}", "HEAD"])
+    num_to_land = git(["rev-list", "--count", f"{merge_base}...HEAD"])
+    if args.debug:
+        print(f"number of changes to land: {num_to_land}")
+    for _ in range(0, int(num_to_land)):
+        subprocess.check_call(
+            [
+                "git",
+                "rebase",
+                "--interactive",
+            ],
+            env={"GIT_EDITOR": os.path.abspath(__file__), **os.environ},
+        )

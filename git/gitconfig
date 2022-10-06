@@ -34,7 +34,7 @@
 [mergetool]
   prompt = true
 [mergetool "nvimdiff"]
-	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
 [diff]
   colorMoved = default
 [difftool]
@@ -60,15 +60,23 @@
 [commit]
   gpgsign = true
 [gpg]
-	program = gpg
+  program = gpg
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [credential "https://github.com"]
-	helper = 
-	helper = !/usr/local/bin/gh auth git-credential
+  helper = 
+  helper = !/usr/local/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/local/bin/gh auth git-credential
+  helper = 
+  helper = !/usr/local/bin/gh auth git-credential
 [spr]
-	branchPrefix = rockwood/spr/
-	requireTestPlan = false
+  branchPrefix = rockwood/spr/
+  requireTestPlan = false
+[fixup]
+  commit = true
+  rebase = true
+  menu = fzf --height '60%' \
+            --bind 'tab:toggle-preview' \
+            --preview 'git show --color {+1}' \
+            --preview-window=up:80% \
+            --prompt 'Select commit: '
