@@ -4,5 +4,6 @@ lua <<EOF
 
 vim.o.background = "dark"
 vim.cmd[[colorscheme material]]
+vim.api.nvim_set_option('makeprg', 'just')
 
 EOF

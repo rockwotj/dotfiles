@@ -9,18 +9,12 @@
 [include]
   path = .gitlocalconfig
 [alias]
-  sync = fetch --prune
   co = checkout
-  st = status
-  # Pretty log for short
-  lg = log --pretty=oneline -n 20 --graph --abbrev-commit
-  deep-clone = clone --recursive  
-  push = push -u
-  # Show verbose output about tags, branches or remotes
-  tags = tag -l
-  branches = branch -a
-  br = "!git for-each-ref refs/heads --color=always --sort -committerdate --format='%(HEAD)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);%(contents:subject);%(color:green)(%(committerdate:relative))%(color:blue);<%(authorname)>' | column -t -s ';'"
-  remotes = remote -v
+  st = status --short --branch
+  c = commit
+  a = add
+  sync = fetch --prune
+  rb = rebase --interactive
   # Amend the currently staged files to the latest commit
   amend = commit --amend --reuse-message=HEAD
   # Delete all branches except master and the current branch
@@ -28,6 +22,14 @@
   # TODO: For both of these support looking up the PR in the trailer and using that.
   files = !git diff --name-only
   stat = !git diff --stat
+  # Pretty log for short
+  lg = log --pretty=oneline -n 20 --graph --abbrev-commit
+  br = "!git for-each-ref refs/heads --color=always --sort -committerdate --format='%(HEAD)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);%(contents:subject);%(color:green)(%(committerdate:relative))%(color:blue);<%(authorname)>' | column -t -s ';'"
+  deep-clone = clone --recursive  
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
 [merge]
   tool = nvimdiff
   conflictstyle = diff3

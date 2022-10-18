@@ -29,6 +29,7 @@ else:
     if args.debug:
         print(f"number of changes to land: {num_to_land}")
     for _ in range(0, int(num_to_land)):
+        subprocess.check_call(["spr", "diff", "--all", "--message=rebase"])
         subprocess.check_call(
             [
                 "git",

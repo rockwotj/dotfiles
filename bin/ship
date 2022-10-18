@@ -77,17 +77,18 @@ if args.service == 'ios':
     notify("Deployment", f"iOS has been deployed to TESTFLIGHT")
     sys.exit(0)
 
-subprocess.check_call([
-    "just",
-    "deploy",
-    args.service,
-    "staging",
-], cwd=str(deploy_dir))
+if args.service != 'frontend':
+    subprocess.check_call([
+        "just",
+        "deploy",
+        args.service,
+        "staging",
+    ], cwd=str(deploy_dir))
 
-notify("Deployment", f"The {args.service} has been deployed to STAGING")
+    notify("Deployment", f"The {args.service} has been deployed to STAGING")
 
-if not yes_or_no("Is it good to go to prod?"):
-    sys.exit(0)
+    if not yes_or_no("Is it good to go to prod?"):
+        sys.exit(0)
 
 subprocess.check_call([
     "just",
