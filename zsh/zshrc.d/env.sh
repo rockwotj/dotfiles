@@ -17,3 +17,6 @@ if [[ -d $HOME/.bin ]]; then
 fi
 export BIT_THEME=monochrome
 
+# https://cloud.google.com/iap/docs/using-tcp-forwarding#increasing_the_tcp_upload_bandwidth
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
+
