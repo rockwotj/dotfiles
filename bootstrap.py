@@ -4,6 +4,8 @@ import argparse
 import os
 import subprocess
 import shutil
+import platform
+import sys
 from glob import glob
 from os import path
 
@@ -97,11 +99,7 @@ def fonts(config, home):
     for file in glob("{}/fonts/*".format(config)):
         cp(file, "{}/Library/Fonts/{}".format(home, path.basename(file)))
 
-def main():
-    global FLAGS
-    print("Starting bootstrap...")
-    FLAGS = PARSER.parse_args()
-
+def bootstrap_macos():
     config = os.path.dirname(path.abspath(__file__))
     home = os.environ["HOME"]
 
@@ -113,6 +111,18 @@ def main():
     zsh(config, home)
     alacritty(config, home)
     fonts(config, home)
+
+def main():
+    global FLAGS
+    print("Starting bootstrap...")
+    FLAGS = PARSER.parse_args()
+
+    if platform.system() == "Darwin":
+        bootstrap_macos()
+    else:
+        print(f"Unknown platform {platform.system()}")
+        sys.exit(1)
+    
 
     print("done!")
 

@@ -6,8 +6,6 @@
 [user]
   name = Tyler Rockwood
   email = rockwotj@gmail.com
-[include]
-  path = .gitlocalconfig
 [alias]
   co = checkout
   st = status --short --branch
@@ -83,10 +81,5 @@
             --preview 'git show --color {+1}' \
             --preview-window=up:80% \
             --prompt 'Select commit: '
-[sendemail]
-  from = Tyler Rockwood <rockwotj@gmail.com>
-  smtpserver = smtp.gmail.com
-  smtpuser = rockwotj@gmail.com
-  smtpencryption = tls
-  smtpserverport = 587
-
+[include]
+  path = .gitlocalconfig
