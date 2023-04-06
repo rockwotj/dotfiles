@@ -112,6 +112,26 @@ def bootstrap_macos():
     alacritty(config, home)
     fonts(config, home)
 
+BASE_PACKAGE_LIST = [
+        "curl",
+        "git",
+        "clang",
+        "build-essential",
+        "cmake",
+        "tmux",
+        "gh",
+        "zsh",
+        "software-properties-common"
+]
+
+def bootstrap_ubuntu():
+    check_call(["sudo", "apt", "update"])
+    check_call(["sudo", "apt", "install", "-y", *BASE_PACKAGE_LIST])
+    # https://github.com/neovim/neovim/releases/latest
+    # https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+    # https://eternalterminal.dev/download/
+
+
 def main():
     global FLAGS
     print("Starting bootstrap...")
