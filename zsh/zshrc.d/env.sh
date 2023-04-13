@@ -26,3 +26,7 @@ export BIT_THEME=monochrome
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
 ulimit -n 1048576
+
+# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+# Simple but maybe we should play with something else?
+PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
