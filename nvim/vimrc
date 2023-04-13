@@ -89,7 +89,7 @@ function! CheckBackSpace() abort
 endfunction
 
 " Required coc completion backends
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-tsserver', 'coc-rust-analyzer', 'coc-html', 'coc-explorer']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-tsserver', 'coc-rust-analyzer', 'coc-html']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
