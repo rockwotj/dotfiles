@@ -192,6 +192,7 @@ def bootstrap_ubuntu():
     zsh(config, home)
     nvim(config, home)
     git(config, home)
+    tmux(config, home)
 
 def main():
     global FLAGS
