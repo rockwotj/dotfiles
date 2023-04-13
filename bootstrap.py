@@ -135,13 +135,29 @@ BASE_PACKAGE_LIST = [
         "zsh",
         "software-properties-common",
         "exa",
+        "python3",
+        "python3-pip",
+        "fzf",
 ]
+
+PPA_PACKAGE_LIST = [
+        "nodejs",
+]
+
+NEOVIM_RELEASE = "v0.9.0"
+SAPLING_RELEASE = "0.2.20230228-144002-h9440b05e"
 
 def bootstrap_ubuntu():
     config = os.path.dirname(path.abspath(__file__))
     home = os.environ["HOME"]
     check_call(["sudo", "apt", "update"])
     check_call(["sudo", "apt", "install", "-y", *BASE_PACKAGE_LIST])
+    # PPAs
+    with in_tempdir():
+        check_call(["curl", "-fsSLO", "https://deb.nodesource.com/setup_lts.x"])
+        check_call(["sudo", "bash", "setup_lts.x"])
+    check_call(["sudo", "apt", "update"])
+    check_call(["sudo", "apt", "install", "-y", *PPA_PACKAGE_LIST])
     if "zsh" not in os.environ["SHELL"]:
         # Set my default shell to zsh 
         check_call(["chsh", "-s", shutil.which("zsh")])
@@ -155,12 +171,27 @@ def bootstrap_ubuntu():
         check_call([
             "curl",
             "-SLO",
-            "https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage",
+            f"https://github.com/neovim/neovim/releases/download/{NEOVIM_RELEASE}/nvim.appimage",
         ])
         check_call(["chmod", "u+x", "nvim.appimage"])
         check_call(["./nvim.appimage", "--appimage-extract"])
         shutil.copytree("squashfs-root", user_root, dirs_exist_ok=True)
+    # Install rustup
+    if not shutil.which("rustup"):
+        with in_tempdir():
+            check_call(["curl", "-sSfo", "install_rustup.sh", "https://sh.rustup.rs"])
+            check_call(["sh", "install_rustup.sh"])
+    with in_tempdir():
+        check_call(["curl", "-SLo", "sapling.deb", f"https://github.com/facebook/sapling/releases/download/{SAPLING_RELEASE}/sapling_{SAPLING_RELEASE}_amd64.Ubuntu22.04.deb"])
+        check_call(["sudo", "apt", "install", "./sapling.deb"])
+    # Install npm packages in our user directory
+    npm_package_dir = path.join(user_root, "npm-packages")
+    os.makedirs(npm_package_dir) 
+    check_call(["npm", "config", "set", "prefix", npm_package_dir])
+    # Standard setup
     zsh(config, home)
+    nvim(config, home)
+    git(config, home)
 
 def main():
     global FLAGS

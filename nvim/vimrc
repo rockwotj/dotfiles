@@ -88,6 +88,8 @@ function! CheckBackSpace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Required coc completion backends
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-tsserver', 'coc-rust-analyzer', 'coc-html', 'coc-explorer']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
