@@ -6,6 +6,7 @@ tap "homebrew/core"
 tap "robotsandpencils/made"
 
 brew "automake"
+brew "exa"
 brew "ibazel"
 brew "bazelisk"
 brew "buildifier"

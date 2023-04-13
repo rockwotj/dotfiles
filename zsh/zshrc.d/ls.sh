@@ -1,2 +1,1 @@
-export LSCOLORS=GxFxCxDxBxegedabagaced
-alias ls="ls -G"
+alias ls="exa"

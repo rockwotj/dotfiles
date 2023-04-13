@@ -6,6 +6,8 @@ import subprocess
 import shutil
 import platform
 import sys
+import tempfile
+from contextlib import contextmanager
 from glob import glob
 from os import path
 
@@ -85,7 +87,7 @@ def zsh(config, home):
     symlink(
             "{}/zsh/completion".format(config),
             "{}/.zsh/completion".format(home))
-    check_call(["mkdir", "-p", "{}/.zsh/cache/".format(home)])
+    os.makedirs("{}/.zsh/cache/".format(home), exist_ok=True)
 
 def alacritty(config, home):
     check_call(["mkdir", "-p", "{}/.config/alacritty/".format(home)])
@@ -112,6 +114,16 @@ def bootstrap_macos():
     alacritty(config, home)
     fonts(config, home)
 
+@contextmanager
+def in_tempdir():
+    origin = os.getcwd()
+    with tempfile.TemporaryDirectory() as tmpdir:
+        try:
+            os.chdir(tmpdir)
+            yield
+        finally:
+            os.chdir(origin)
+
 BASE_PACKAGE_LIST = [
         "curl",
         "git",
@@ -121,16 +133,34 @@ BASE_PACKAGE_LIST = [
         "tmux",
         "gh",
         "zsh",
-        "software-properties-common"
+        "software-properties-common",
+        "exa",
 ]
 
 def bootstrap_ubuntu():
+    config = os.path.dirname(path.abspath(__file__))
+    home = os.environ["HOME"]
     check_call(["sudo", "apt", "update"])
     check_call(["sudo", "apt", "install", "-y", *BASE_PACKAGE_LIST])
-    # https://github.com/neovim/neovim/releases/latest
-    # https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
-    # https://eternalterminal.dev/download/
-
+    if "zsh" not in os.environ["SHELL"]:
+        # Set my default shell to zsh 
+        check_call(["chsh", "-s", shutil.which("zsh")])
+        print("Updated default shell to be zsh, please relogin to continue")
+        return
+    user_root = path.join(home, ".root")
+    shutil.rmtree(user_root)
+    os.makedirs(user_root) 
+    # Install latest nvim - the apt repo is old
+    with in_tempdir():
+        check_call([
+            "curl",
+            "-SLO",
+            "https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage",
+        ])
+        check_call(["chmod", "u+x", "nvim.appimage"])
+        check_call(["./nvim.appimage", "--appimage-extract"])
+        shutil.copytree("squashfs-root", user_root, dirs_exist_ok=True)
+    zsh(config, home)
 
 def main():
     global FLAGS
@@ -139,6 +169,8 @@ def main():
 
     if platform.system() == "Darwin":
         bootstrap_macos()
+    elif platform.system() == "Linux":
+        bootstrap_ubuntu()
     else:
         print(f"Unknown platform {platform.system()}")
         sys.exit(1)
