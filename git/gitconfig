@@ -10,7 +10,9 @@
   co = checkout
   st = status --short --branch
   c = commit
+  f = fixup
   a = add
+  aa = add --all
   sync = fetch --prune
   rb = rebase --interactive
   # Amend the currently staged files to the latest commit
@@ -28,6 +30,7 @@
   tags = tag -l
   branches = branch -a
   remotes = remote -v
+	count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
 [merge]
   tool = nvimdiff
   conflictstyle = diff3

@@ -20,3 +20,9 @@
 [submodule "nvim/autoplugins/material.nvim"]
 	path = nvim/autoplugins/material.nvim
 	url = https://github.com/marko-cerovac/material.nvim.git
+[submodule "nvim/autoplugins/vim-test"]
+	path = nvim/autoplugins/vim-test
+	url = https://github.com/vim-test/vim-test.git
+[submodule "nvim/autoplugins/vimux"]
+	path = nvim/autoplugins/vimux
+	url = https://github.com/preservim/vimux.git
