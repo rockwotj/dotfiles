@@ -146,6 +146,7 @@ PPA_PACKAGE_LIST = [
 
 NEOVIM_RELEASE = "v0.9.0"
 SAPLING_RELEASE = "0.2.20230228-144002-h9440b05e"
+DELTA_RELEASE = "0.15.1"
 
 def bootstrap_ubuntu():
     config = os.path.dirname(path.abspath(__file__))
@@ -184,6 +185,8 @@ def bootstrap_ubuntu():
     with in_tempdir():
         check_call(["curl", "-SLo", "sapling.deb", f"https://github.com/facebook/sapling/releases/download/{SAPLING_RELEASE}/sapling_{SAPLING_RELEASE}_amd64.Ubuntu22.04.deb"])
         check_call(["sudo", "apt", "install", "./sapling.deb"])
+        check_call(["curl", "-SLo", "delta.deb", f"https://github.com/dandavison/delta/releases/download/{DELTA_RELEASE}/git-delta_{DELTA_RELEASE}_amd64.deb"])
+        check_call(["sudo", "apt", "install", "./delta.deb"])
     # Install npm packages in our user directory
     npm_package_dir = path.join(user_root, "npm-packages")
     os.makedirs(npm_package_dir) 
