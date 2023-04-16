@@ -147,6 +147,7 @@ PPA_PACKAGE_LIST = [
 NEOVIM_RELEASE = "v0.9.0"
 SAPLING_RELEASE = "0.2.20230228-144002-h9440b05e"
 DELTA_RELEASE = "0.15.1"
+CLANG_VERSION = "16"
 
 def bootstrap_ubuntu():
     config = os.path.dirname(path.abspath(__file__))
@@ -187,6 +188,10 @@ def bootstrap_ubuntu():
         check_call(["sudo", "apt", "install", "./sapling.deb"])
         check_call(["curl", "-SLo", "delta.deb", f"https://github.com/dandavison/delta/releases/download/{DELTA_RELEASE}/git-delta_{DELTA_RELEASE}_amd64.deb"])
         check_call(["sudo", "apt", "install", "./delta.deb"])
+        check_call(["curl", "-SLO", "https://apt.llvm.org/llvm.sh"])
+        check_call(["chmod", "+x", "./llvm.sh"])
+        check_call(["sudo", "./llvm.sh", CLANG_VERSION])
+
     # Install npm packages in our user directory
     npm_package_dir = path.join(user_root, "npm-packages")
     os.makedirs(npm_package_dir) 
