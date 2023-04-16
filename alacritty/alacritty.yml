@@ -211,7 +211,7 @@ shell:
   args:
     - -l
     - -c # --command
-    - "tmux attach || tmux"
+    - "ssh -t redpanda.lan 'tmux new -A -s main'"
 
 # Startup directory
 #
