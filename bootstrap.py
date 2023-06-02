@@ -75,6 +75,9 @@ def nvim(config, home):
             "{}/.local/share/nvim/site/pack/plugins/opt".format(home))
     check_call(["pip3", "install", "pynvim"])
     check_call(["npm", "install", "--global", "neovim"])
+    symlink(
+            "{}/coc/ultisnips".format(config),
+            "{}/.config/coc/ultisnips".format(home))
 
 def zsh(config, home):
     symlink(
@@ -138,6 +141,7 @@ BASE_PACKAGE_LIST = [
         "python3",
         "python3-pip",
         "fzf",
+        "mosh",
 ]
 
 PPA_PACKAGE_LIST = [
@@ -191,6 +195,18 @@ def bootstrap_ubuntu():
         check_call(["curl", "-SLO", "https://apt.llvm.org/llvm.sh"])
         check_call(["chmod", "+x", "./llvm.sh"])
         check_call(["sudo", "./llvm.sh", CLANG_VERSION])
+        # TODO: Add assert shell for this
+        os.system(f"sh -c \"$(curl --location https://taskfile.dev/install.sh)\" -- -d -b {user_root}/usr/bin v3.19.0")
+        check_call(["curl", "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip", "-o", "awscliv2.zip"])
+        check_call(["unzip", "awscliv2.zip"])
+        check_call([
+            "sudo",
+            "./aws/install",
+            "--bin-dir",
+            f"{user_root}/usr/local/bin",
+            "--install-dir",
+            f"{user_root}/usr/local/aws-cli"
+        ])
 
     # Install npm packages in our user directory
     npm_package_dir = path.join(user_root, "npm-packages")

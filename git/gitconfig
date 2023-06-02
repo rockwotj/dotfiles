@@ -9,7 +9,7 @@
 [alias]
   co = checkout
   st = status --short --branch
-  c = commit
+  c = commit --signoff
   f = fixup
   a = add
   aa = add --all
@@ -20,8 +20,8 @@
   # Delete all branches except master and the current branch
   cleanup = "!sh $(dirname \"$(readlink $HOME/.gitconfig)\")/cleanup-branches.sh"
   # TODO: For both of these support looking up the PR in the trailer and using that.
-  files = !git diff --name-only
-  stat = !git diff --stat
+  files = diff --name-only
+  stat = diff --stat
   # Pretty log for short
   lg = log --pretty=oneline -n 20 --graph --abbrev-commit
   br = "!git for-each-ref refs/heads --color=always --sort -committerdate --format='%(HEAD)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);%(contents:subject);%(color:green)(%(committerdate:relative))%(color:blue);<%(authorname)>' | column -t -s ';'"

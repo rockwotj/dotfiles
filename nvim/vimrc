@@ -139,6 +139,9 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
+:command SwitchSrc CocCommand clangd.switchSourceHeader
+nnoremap <silent><nowait> <tab> :<C-u>CocCommand clangd.switchSourceHeader<cr>
+nnoremap <silent><nowait> <space> :<C-u>CocList -I symbols<cr>
 
 function! ToggleOutline() abort
   let winid = coc#window#find('cocViewId', 'OUTLINE')
@@ -148,9 +151,6 @@ function! ToggleOutline() abort
     call coc#window#close(winid)
   endif
 endfunction
-
-" Use `:Symbols` to list all the symbols from the LSP server
-:command Symbols CocList --interactive symbols
 
 let test#strategy = "vimux"
 let g:VimuxHeight = "50"
