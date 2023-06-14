@@ -35,8 +35,8 @@ endsnippet
 snippet ctor_move_only "move only ctor" b
 ${1}(const ${1}&) = delete;
 ${1}& operator=(const ${1}&) = delete;
-${1}(${1}&&) = delete;
-${1}& operator=(${1}&&) = delete;
+${1}(${1}&&) = default;
+${1}& operator=(${1}&&) = default;
 ~${1}() = default;
 endsnippet
 
@@ -46,4 +46,1292 @@ ${1}& operator=(const ${1}&) = delete;
 ${1}(${1}&&) = delete;
 ${1}& operator=(${1}&&) = delete;
 ~${1}() = default;
+endsnippet
+
+snippet nolintnextline "Clang tidy NOLINTNEXTLINE" b
+// NOLINTNEXTLINE()
+endsnippet
+
+snippet lw-abseil-cleanup-ctad "" w
+abseil-cleanup-ctad
+endsnippet
+
+snippet lw-abseil-duration-addition "" w
+abseil-duration-addition
+endsnippet
+
+snippet lw-abseil-duration-comparison "" w
+abseil-duration-comparison
+endsnippet
+
+snippet lw-abseil-duration-conversion-cast "" w
+abseil-duration-conversion-cast
+endsnippet
+
+snippet lw-abseil-duration-division "" w
+abseil-duration-division
+endsnippet
+
+snippet lw-abseil-duration-factory-float "" w
+abseil-duration-factory-float
+endsnippet
+
+snippet lw-abseil-duration-factory-scale "" w
+abseil-duration-factory-scale
+endsnippet
+
+snippet lw-abseil-duration-subtraction "" w
+abseil-duration-subtraction
+endsnippet
+
+snippet lw-abseil-duration-unnecessary-conversion "" w
+abseil-duration-unnecessary-conversion
+endsnippet
+
+snippet lw-abseil-faster-strsplit-delimiter "" w
+abseil-faster-strsplit-delimiter
+endsnippet
+
+snippet lw-abseil-no-internal-dependencies "" w
+abseil-no-internal-dependencies
+endsnippet
+
+snippet lw-abseil-no-namespace "" w
+abseil-no-namespace
+endsnippet
+
+snippet lw-abseil-redundant-strcat-calls "" w
+abseil-redundant-strcat-calls
+endsnippet
+
+snippet lw-abseil-str-cat-append "" w
+abseil-str-cat-append
+endsnippet
+
+snippet lw-abseil-string-find-startswith "" w
+abseil-string-find-startswith
+endsnippet
+
+snippet lw-abseil-string-find-str-contains "" w
+abseil-string-find-str-contains
+endsnippet
+
+snippet lw-abseil-time-comparison "" w
+abseil-time-comparison
+endsnippet
+
+snippet lw-abseil-time-subtraction "" w
+abseil-time-subtraction
+endsnippet
+
+snippet lw-abseil-upgrade-duration-conversions "" w
+abseil-upgrade-duration-conversions
+endsnippet
+
+snippet lw-altera-id-dependent-backward-branch "" w
+altera-id-dependent-backward-branch
+endsnippet
+
+snippet lw-altera-kernel-name-restriction "" w
+altera-kernel-name-restriction
+endsnippet
+
+snippet lw-altera-single-work-item-barrier "" w
+altera-single-work-item-barrier
+endsnippet
+
+snippet lw-altera-struct-pack-align "" w
+altera-struct-pack-align
+endsnippet
+
+snippet lw-altera-unroll-loops "" w
+altera-unroll-loops
+endsnippet
+
+snippet lw-boost-use-to-string "" w
+boost-use-to-string
+endsnippet
+
+snippet lw-bugprone-argument-comment "" w
+bugprone-argument-comment
+endsnippet
+
+snippet lw-bugprone-assert-side-effect "" w
+bugprone-assert-side-effect
+endsnippet
+
+snippet lw-bugprone-assignment-in-if-condition "" w
+bugprone-assignment-in-if-condition
+endsnippet
+
+snippet lw-bugprone-bad-signal-to-kill-thread "" w
+bugprone-bad-signal-to-kill-thread
+endsnippet
+
+snippet lw-bugprone-bool-pointer-implicit-conversion "" w
+bugprone-bool-pointer-implicit-conversion
+endsnippet
+
+snippet lw-bugprone-branch-clone "" w
+bugprone-branch-clone
+endsnippet
+
+snippet lw-bugprone-copy-constructor-init "" w
+bugprone-copy-constructor-init
+endsnippet
+
+snippet lw-bugprone-dangling-handle "" w
+bugprone-dangling-handle
+endsnippet
+
+snippet lw-bugprone-dynamic-static-initializers "" w
+bugprone-dynamic-static-initializers
+endsnippet
+
+snippet lw-bugprone-easily-swappable-parameters "" w
+bugprone-easily-swappable-parameters
+endsnippet
+
+snippet lw-bugprone-exception-escape "" w
+bugprone-exception-escape
+endsnippet
+
+snippet lw-bugprone-fold-init-type "" w
+bugprone-fold-init-type
+endsnippet
+
+snippet lw-bugprone-forward-declaration-namespace "" w
+bugprone-forward-declaration-namespace
+endsnippet
+
+snippet lw-bugprone-forwarding-reference-overload "" w
+bugprone-forwarding-reference-overload
+endsnippet
+
+snippet lw-bugprone-implicit-widening-of-multiplication-result "" w
+bugprone-implicit-widening-of-multiplication-result
+endsnippet
+
+snippet lw-bugprone-inaccurate-erase "" w
+bugprone-inaccurate-erase
+endsnippet
+
+snippet lw-bugprone-incorrect-roundings "" w
+bugprone-incorrect-roundings
+endsnippet
+
+snippet lw-bugprone-infinite-loop "" w
+bugprone-infinite-loop
+endsnippet
+
+snippet lw-bugprone-integer-division "" w
+bugprone-integer-division
+endsnippet
+
+snippet lw-bugprone-lambda-function-name "" w
+bugprone-lambda-function-name
+endsnippet
+
+snippet lw-bugprone-macro-parentheses "" w
+bugprone-macro-parentheses
+endsnippet
+
+snippet lw-bugprone-macro-repeated-side-effects "" w
+bugprone-macro-repeated-side-effects
+endsnippet
+
+snippet lw-bugprone-misplaced-operator-in-strlen-in-alloc "" w
+bugprone-misplaced-operator-in-strlen-in-alloc
+endsnippet
+
+snippet lw-bugprone-misplaced-pointer-arithmetic-in-alloc "" w
+bugprone-misplaced-pointer-arithmetic-in-alloc
+endsnippet
+
+snippet lw-bugprone-misplaced-widening-cast "" w
+bugprone-misplaced-widening-cast
+endsnippet
+
+snippet lw-bugprone-move-forwarding-reference "" w
+bugprone-move-forwarding-reference
+endsnippet
+
+snippet lw-bugprone-multiple-new-in-one-expression "" w
+bugprone-multiple-new-in-one-expression
+endsnippet
+
+snippet lw-bugprone-multiple-statement-macro "" w
+bugprone-multiple-statement-macro
+endsnippet
+
+snippet lw-bugprone-no-escape "" w
+bugprone-no-escape
+endsnippet
+
+snippet lw-bugprone-non-zero-enum-to-bool-conversion "" w
+bugprone-non-zero-enum-to-bool-conversion
+endsnippet
+
+snippet lw-bugprone-not-null-terminated-result "" w
+bugprone-not-null-terminated-result
+endsnippet
+
+snippet lw-bugprone-parent-virtual-call "" w
+bugprone-parent-virtual-call
+endsnippet
+
+snippet lw-bugprone-posix-return "" w
+bugprone-posix-return
+endsnippet
+
+snippet lw-bugprone-redundant-branch-condition "" w
+bugprone-redundant-branch-condition
+endsnippet
+
+snippet lw-bugprone-reserved-identifier "" w
+bugprone-reserved-identifier
+endsnippet
+
+snippet lw-bugprone-shared-ptr-array-mismatch "" w
+bugprone-shared-ptr-array-mismatch
+endsnippet
+
+snippet lw-bugprone-signal-handler "" w
+bugprone-signal-handler
+endsnippet
+
+snippet lw-bugprone-signed-char-misuse "" w
+bugprone-signed-char-misuse
+endsnippet
+
+snippet lw-bugprone-sizeof-container "" w
+bugprone-sizeof-container
+endsnippet
+
+snippet lw-bugprone-sizeof-expression "" w
+bugprone-sizeof-expression
+endsnippet
+
+snippet lw-bugprone-spuriously-wake-up-functions "" w
+bugprone-spuriously-wake-up-functions
+endsnippet
+
+snippet lw-bugprone-standalone-empty "" w
+bugprone-standalone-empty
+endsnippet
+
+snippet lw-bugprone-string-constructor "" w
+bugprone-string-constructor
+endsnippet
+
+snippet lw-bugprone-string-integer-assignment "" w
+bugprone-string-integer-assignment
+endsnippet
+
+snippet lw-bugprone-string-literal-with-embedded-nul "" w
+bugprone-string-literal-with-embedded-nul
+endsnippet
+
+snippet lw-bugprone-stringview-nullptr "" w
+bugprone-stringview-nullptr
+endsnippet
+
+snippet lw-bugprone-suspicious-enum-usage "" w
+bugprone-suspicious-enum-usage
+endsnippet
+
+snippet lw-bugprone-suspicious-include "" w
+bugprone-suspicious-include
+endsnippet
+
+snippet lw-bugprone-suspicious-memory-comparison "" w
+bugprone-suspicious-memory-comparison
+endsnippet
+
+snippet lw-bugprone-suspicious-memset-usage "" w
+bugprone-suspicious-memset-usage
+endsnippet
+
+snippet lw-bugprone-suspicious-missing-comma "" w
+bugprone-suspicious-missing-comma
+endsnippet
+
+snippet lw-bugprone-suspicious-realloc-usage "" w
+bugprone-suspicious-realloc-usage
+endsnippet
+
+snippet lw-bugprone-suspicious-semicolon "" w
+bugprone-suspicious-semicolon
+endsnippet
+
+snippet lw-bugprone-suspicious-string-compare "" w
+bugprone-suspicious-string-compare
+endsnippet
+
+snippet lw-bugprone-swapped-arguments "" w
+bugprone-swapped-arguments
+endsnippet
+
+snippet lw-bugprone-terminating-continue "" w
+bugprone-terminating-continue
+endsnippet
+
+snippet lw-bugprone-throw-keyword-missing "" w
+bugprone-throw-keyword-missing
+endsnippet
+
+snippet lw-bugprone-too-small-loop-variable "" w
+bugprone-too-small-loop-variable
+endsnippet
+
+snippet lw-bugprone-unchecked-optional-access "" w
+bugprone-unchecked-optional-access
+endsnippet
+
+snippet lw-bugprone-undefined-memory-manipulation "" w
+bugprone-undefined-memory-manipulation
+endsnippet
+
+snippet lw-bugprone-undelegated-constructor "" w
+bugprone-undelegated-constructor
+endsnippet
+
+snippet lw-bugprone-unhandled-exception-at-new "" w
+bugprone-unhandled-exception-at-new
+endsnippet
+
+snippet lw-bugprone-unhandled-self-assignment "" w
+bugprone-unhandled-self-assignment
+endsnippet
+
+snippet lw-bugprone-unique-ptr-array-mismatch "" w
+bugprone-unique-ptr-array-mismatch
+endsnippet
+
+snippet lw-bugprone-unsafe-functions "" w
+bugprone-unsafe-functions
+endsnippet
+
+snippet lw-bugprone-unused-raii "" w
+bugprone-unused-raii
+endsnippet
+
+snippet lw-bugprone-unused-return-value "" w
+bugprone-unused-return-value
+endsnippet
+
+snippet lw-bugprone-use-after-move "" w
+bugprone-use-after-move
+endsnippet
+
+snippet lw-bugprone-virtual-near-miss "" w
+bugprone-virtual-near-miss
+endsnippet
+
+snippet lw-cert-dcl21-cpp "" w
+cert-dcl21-cpp
+endsnippet
+
+snippet lw-cert-dcl50-cpp "" w
+cert-dcl50-cpp
+endsnippet
+
+snippet lw-cert-dcl58-cpp "" w
+cert-dcl58-cpp
+endsnippet
+
+snippet lw-cert-env33-c "" w
+cert-env33-c
+endsnippet
+
+snippet lw-cert-err33-c "" w
+cert-err33-c
+endsnippet
+
+snippet lw-cert-err34-c "" w
+cert-err34-c
+endsnippet
+
+snippet lw-cert-err52-cpp "" w
+cert-err52-cpp
+endsnippet
+
+snippet lw-cert-err58-cpp "" w
+cert-err58-cpp
+endsnippet
+
+snippet lw-cert-err60-cpp "" w
+cert-err60-cpp
+endsnippet
+
+snippet lw-cert-flp30-c "" w
+cert-flp30-c
+endsnippet
+
+snippet lw-cert-mem57-cpp "" w
+cert-mem57-cpp
+endsnippet
+
+snippet lw-cert-msc50-cpp "" w
+cert-msc50-cpp
+endsnippet
+
+snippet lw-cert-msc51-cpp "" w
+cert-msc51-cpp
+endsnippet
+
+snippet lw-cert-oop57-cpp "" w
+cert-oop57-cpp
+endsnippet
+
+snippet lw-cert-oop58-cpp "" w
+cert-oop58-cpp
+endsnippet
+
+snippet lw-clang-analyzer-core.DynamicTypePropagation "" w
+clang-analyzer-core.DynamicTypePropagation
+endsnippet
+
+snippet lw-clang-analyzer-core.uninitialized.CapturedBlockVariable "" w
+clang-analyzer-core.uninitialized.CapturedBlockVariable
+endsnippet
+
+snippet lw-clang-analyzer-cplusplus.InnerPointer "" w
+clang-analyzer-cplusplus.InnerPointer
+endsnippet
+
+snippet lw-clang-analyzer-nullability.NullableReturnedFromNonnull "" w
+clang-analyzer-nullability.NullableReturnedFromNonnull
+endsnippet
+
+snippet lw-clang-analyzer-optin.performance.GCDAntipattern "" w
+clang-analyzer-optin.performance.GCDAntipattern
+endsnippet
+
+snippet lw-clang-analyzer-optin.performance.Padding "" w
+clang-analyzer-optin.performance.Padding
+endsnippet
+
+snippet lw-clang-analyzer-optin.portability.UnixAPI "" w
+clang-analyzer-optin.portability.UnixAPI
+endsnippet
+
+snippet lw-clang-analyzer-valist.CopyToSelf "" w
+clang-analyzer-valist.CopyToSelf
+endsnippet
+
+snippet lw-clang-analyzer-valist.Uninitialized "" w
+clang-analyzer-valist.Uninitialized
+endsnippet
+
+snippet lw-clang-analyzer-valist.Unterminated "" w
+clang-analyzer-valist.Unterminated
+endsnippet
+
+snippet lw-concurrency-mt-unsafe "" w
+concurrency-mt-unsafe
+endsnippet
+
+snippet lw-concurrency-thread-canceltype-asynchronous "" w
+concurrency-thread-canceltype-asynchronous
+endsnippet
+
+snippet lw-cppcoreguidelines-avoid-capturing-lambda-coroutines "" w
+cppcoreguidelines-avoid-capturing-lambda-coroutines
+endsnippet
+
+snippet lw-cppcoreguidelines-avoid-const-or-ref-data-members "" w
+cppcoreguidelines-avoid-const-or-ref-data-members
+endsnippet
+
+snippet lw-cppcoreguidelines-avoid-do-while "" w
+cppcoreguidelines-avoid-do-while
+endsnippet
+
+snippet lw-cppcoreguidelines-avoid-goto "" w
+cppcoreguidelines-avoid-goto
+endsnippet
+
+snippet lw-cppcoreguidelines-avoid-non-const-global-variables "" w
+cppcoreguidelines-avoid-non-const-global-variables
+endsnippet
+
+snippet lw-cppcoreguidelines-avoid-reference-coroutine-parameters "" w
+cppcoreguidelines-avoid-reference-coroutine-parameters
+endsnippet
+
+snippet lw-cppcoreguidelines-init-variables "" w
+cppcoreguidelines-init-variables
+endsnippet
+
+snippet lw-cppcoreguidelines-interfaces-global-init "" w
+cppcoreguidelines-interfaces-global-init
+endsnippet
+
+snippet lw-cppcoreguidelines-macro-usage "" w
+cppcoreguidelines-macro-usage
+endsnippet
+
+snippet lw-cppcoreguidelines-misleading-capture-default-by-value "" w
+cppcoreguidelines-misleading-capture-default-by-value
+endsnippet
+
+snippet lw-cppcoreguidelines-missing-std-forward "" w
+cppcoreguidelines-missing-std-forward
+endsnippet
+
+snippet lw-cppcoreguidelines-narrowing-conversions "" w
+cppcoreguidelines-narrowing-conversions
+endsnippet
+
+snippet lw-cppcoreguidelines-no-malloc "" w
+cppcoreguidelines-no-malloc
+endsnippet
+
+snippet lw-cppcoreguidelines-owning-memory "" w
+cppcoreguidelines-owning-memory
+endsnippet
+
+snippet lw-cppcoreguidelines-prefer-member-initializer "" w
+cppcoreguidelines-prefer-member-initializer
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-bounds-array-to-pointer-decay "" w
+cppcoreguidelines-pro-bounds-array-to-pointer-decay
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-bounds-constant-array-index "" w
+cppcoreguidelines-pro-bounds-constant-array-index
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-bounds-pointer-arithmetic "" w
+cppcoreguidelines-pro-bounds-pointer-arithmetic
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-type-const-cast "" w
+cppcoreguidelines-pro-type-const-cast
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-type-cstyle-cast "" w
+cppcoreguidelines-pro-type-cstyle-cast
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-type-member-init "" w
+cppcoreguidelines-pro-type-member-init
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-type-reinterpret-cast "" w
+cppcoreguidelines-pro-type-reinterpret-cast
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-type-static-cast-downcast "" w
+cppcoreguidelines-pro-type-static-cast-downcast
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-type-union-access "" w
+cppcoreguidelines-pro-type-union-access
+endsnippet
+
+snippet lw-cppcoreguidelines-pro-type-vararg "" w
+cppcoreguidelines-pro-type-vararg
+endsnippet
+
+snippet lw-cppcoreguidelines-rvalue-reference-param-not-moved "" w
+cppcoreguidelines-rvalue-reference-param-not-moved
+endsnippet
+
+snippet lw-cppcoreguidelines-slicing "" w
+cppcoreguidelines-slicing
+endsnippet
+
+snippet lw-cppcoreguidelines-special-member-functions "" w
+cppcoreguidelines-special-member-functions
+endsnippet
+
+snippet lw-cppcoreguidelines-virtual-class-destructor "" w
+cppcoreguidelines-virtual-class-destructor
+endsnippet
+
+snippet lw-darwin-avoid-spinlock "" w
+darwin-avoid-spinlock
+endsnippet
+
+snippet lw-darwin-dispatch-once-nonstatic "" w
+darwin-dispatch-once-nonstatic
+endsnippet
+
+snippet lw-fuchsia-default-arguments-calls "" w
+fuchsia-default-arguments-calls
+endsnippet
+
+snippet lw-fuchsia-default-arguments-declarations "" w
+fuchsia-default-arguments-declarations
+endsnippet
+
+snippet lw-fuchsia-multiple-inheritance "" w
+fuchsia-multiple-inheritance
+endsnippet
+
+snippet lw-fuchsia-overloaded-operator "" w
+fuchsia-overloaded-operator
+endsnippet
+
+snippet lw-fuchsia-statically-constructed-objects "" w
+fuchsia-statically-constructed-objects
+endsnippet
+
+snippet lw-fuchsia-trailing-return "" w
+fuchsia-trailing-return
+endsnippet
+
+snippet lw-fuchsia-virtual-inheritance "" w
+fuchsia-virtual-inheritance
+endsnippet
+
+snippet lw-google-build-explicit-make-pair "" w
+google-build-explicit-make-pair
+endsnippet
+
+snippet lw-google-build-namespaces "" w
+google-build-namespaces
+endsnippet
+
+snippet lw-google-build-using-namespace "" w
+google-build-using-namespace
+endsnippet
+
+snippet lw-google-default-arguments "" w
+google-default-arguments
+endsnippet
+
+snippet lw-google-explicit-constructor "" w
+google-explicit-constructor
+endsnippet
+
+snippet lw-google-global-names-in-headers "" w
+google-global-names-in-headers
+endsnippet
+
+snippet lw-google-objc-avoid-nsobject-new "" w
+google-objc-avoid-nsobject-new
+endsnippet
+
+snippet lw-google-objc-avoid-throwing-exception "" w
+google-objc-avoid-throwing-exception
+endsnippet
+
+snippet lw-google-objc-function-naming "" w
+google-objc-function-naming
+endsnippet
+
+snippet lw-google-objc-global-variable-declaration "" w
+google-objc-global-variable-declaration
+endsnippet
+
+snippet lw-google-readability-avoid-underscore-in-googletest-name "" w
+google-readability-avoid-underscore-in-googletest-name
+endsnippet
+
+snippet lw-google-readability-casting "" w
+google-readability-casting
+endsnippet
+
+snippet lw-google-readability-todo "" w
+google-readability-todo
+endsnippet
+
+snippet lw-google-runtime-int "" w
+google-runtime-int
+endsnippet
+
+snippet lw-google-runtime-operator "" w
+google-runtime-operator
+endsnippet
+
+snippet lw-google-upgrade-googletest-case "" w
+google-upgrade-googletest-case
+endsnippet
+
+snippet lw-hicpp-avoid-goto "" w
+hicpp-avoid-goto
+endsnippet
+
+snippet lw-hicpp-exception-baseclass "" w
+hicpp-exception-baseclass
+endsnippet
+
+snippet lw-hicpp-multiway-paths-covered "" w
+hicpp-multiway-paths-covered
+endsnippet
+
+snippet lw-hicpp-no-assembler "" w
+hicpp-no-assembler
+endsnippet
+
+snippet lw-hicpp-signed-bitwise "" w
+hicpp-signed-bitwise
+endsnippet
+
+snippet lw-linuxkernel-must-use-errs "" w
+linuxkernel-must-use-errs
+endsnippet
+
+snippet lw-llvm-header-guard "" w
+llvm-header-guard
+endsnippet
+
+snippet lw-llvm-include-order "" w
+llvm-include-order
+endsnippet
+
+snippet lw-llvm-namespace-comment "" w
+llvm-namespace-comment
+endsnippet
+
+snippet lw-llvm-prefer-isa-or-dyn-cast-in-conditionals "" w
+llvm-prefer-isa-or-dyn-cast-in-conditionals
+endsnippet
+
+snippet lw-llvm-prefer-register-over-unsigned "" w
+llvm-prefer-register-over-unsigned
+endsnippet
+
+snippet lw-llvm-twine-local "" w
+llvm-twine-local
+endsnippet
+
+snippet lw-llvmlibc-callee-namespace "" w
+llvmlibc-callee-namespace
+endsnippet
+
+snippet lw-llvmlibc-implementation-in-namespace "" w
+llvmlibc-implementation-in-namespace
+endsnippet
+
+snippet lw-llvmlibc-inline-function-decl "" w
+llvmlibc-inline-function-decl
+endsnippet
+
+snippet lw-llvmlibc-restrict-system-libc-headers "" w
+llvmlibc-restrict-system-libc-headers
+endsnippet
+
+snippet lw-misc-confusable-identifiers "" w
+misc-confusable-identifiers
+endsnippet
+
+snippet lw-misc-const-correctness "" w
+misc-const-correctness
+endsnippet
+
+snippet lw-misc-definitions-in-headers "" w
+misc-definitions-in-headers
+endsnippet
+
+snippet lw-misc-include-cleaner "" w
+misc-include-cleaner
+endsnippet
+
+snippet lw-misc-misleading-bidirectional "" w
+misc-misleading-bidirectional
+endsnippet
+
+snippet lw-misc-misleading-identifier "" w
+misc-misleading-identifier
+endsnippet
+
+snippet lw-misc-misplaced-const "" w
+misc-misplaced-const
+endsnippet
+
+snippet lw-misc-new-delete-overloads "" w
+misc-new-delete-overloads
+endsnippet
+
+snippet lw-misc-no-recursion "" w
+misc-no-recursion
+endsnippet
+
+snippet lw-misc-non-copyable-objects "" w
+misc-non-copyable-objects
+endsnippet
+
+snippet lw-misc-non-private-member-variables-in-classes "" w
+misc-non-private-member-variables-in-classes
+endsnippet
+
+snippet lw-misc-redundant-expression "" w
+misc-redundant-expression
+endsnippet
+
+snippet lw-misc-static-assert "" w
+misc-static-assert
+endsnippet
+
+snippet lw-misc-throw-by-value-catch-by-reference "" w
+misc-throw-by-value-catch-by-reference
+endsnippet
+
+snippet lw-misc-unconventional-assign-operator "" w
+misc-unconventional-assign-operator
+endsnippet
+
+snippet lw-misc-uniqueptr-reset-release "" w
+misc-uniqueptr-reset-release
+endsnippet
+
+snippet lw-misc-unused-alias-decls "" w
+misc-unused-alias-decls
+endsnippet
+
+snippet lw-misc-unused-parameters "" w
+misc-unused-parameters
+endsnippet
+
+snippet lw-misc-unused-using-decls "" w
+misc-unused-using-decls
+endsnippet
+
+snippet lw-misc-use-anonymous-namespace "" w
+misc-use-anonymous-namespace
+endsnippet
+
+snippet lw-modernize-avoid-bind "" w
+modernize-avoid-bind
+endsnippet
+
+snippet lw-modernize-avoid-c-arrays "" w
+modernize-avoid-c-arrays
+endsnippet
+
+snippet lw-modernize-concat-nested-namespaces "" w
+modernize-concat-nested-namespaces
+endsnippet
+
+snippet lw-modernize-deprecated-headers "" w
+modernize-deprecated-headers
+endsnippet
+
+snippet lw-modernize-deprecated-ios-base-aliases "" w
+modernize-deprecated-ios-base-aliases
+endsnippet
+
+snippet lw-modernize-loop-convert "" w
+modernize-loop-convert
+endsnippet
+
+snippet lw-modernize-macro-to-enum "" w
+modernize-macro-to-enum
+endsnippet
+
+snippet lw-modernize-make-shared "" w
+modernize-make-shared
+endsnippet
+
+snippet lw-modernize-make-unique "" w
+modernize-make-unique
+endsnippet
+
+snippet lw-modernize-pass-by-value "" w
+modernize-pass-by-value
+endsnippet
+
+snippet lw-modernize-raw-string-literal "" w
+modernize-raw-string-literal
+endsnippet
+
+snippet lw-modernize-redundant-void-arg "" w
+modernize-redundant-void-arg
+endsnippet
+
+snippet lw-modernize-replace-auto-ptr "" w
+modernize-replace-auto-ptr
+endsnippet
+
+snippet lw-modernize-replace-disallow-copy-and-assign-macro "" w
+modernize-replace-disallow-copy-and-assign-macro
+endsnippet
+
+snippet lw-modernize-replace-random-shuffle "" w
+modernize-replace-random-shuffle
+endsnippet
+
+snippet lw-modernize-return-braced-init-list "" w
+modernize-return-braced-init-list
+endsnippet
+
+snippet lw-modernize-shrink-to-fit "" w
+modernize-shrink-to-fit
+endsnippet
+
+snippet lw-modernize-type-traits "" w
+modernize-type-traits
+endsnippet
+
+snippet lw-modernize-unary-static-assert "" w
+modernize-unary-static-assert
+endsnippet
+
+snippet lw-modernize-use-auto "" w
+modernize-use-auto
+endsnippet
+
+snippet lw-modernize-use-bool-literals "" w
+modernize-use-bool-literals
+endsnippet
+
+snippet lw-modernize-use-default-member-init "" w
+modernize-use-default-member-init
+endsnippet
+
+snippet lw-modernize-use-emplace "" w
+modernize-use-emplace
+endsnippet
+
+snippet lw-modernize-use-equals-default "" w
+modernize-use-equals-default
+endsnippet
+
+snippet lw-modernize-use-equals-delete "" w
+modernize-use-equals-delete
+endsnippet
+
+snippet lw-modernize-use-nodiscard "" w
+modernize-use-nodiscard
+endsnippet
+
+snippet lw-modernize-use-noexcept "" w
+modernize-use-noexcept
+endsnippet
+
+snippet lw-modernize-use-nullptr "" w
+modernize-use-nullptr
+endsnippet
+
+snippet lw-modernize-use-override "" w
+modernize-use-override
+endsnippet
+
+snippet lw-modernize-use-trailing-return-type "" w
+modernize-use-trailing-return-type
+endsnippet
+
+snippet lw-modernize-use-transparent-functors "" w
+modernize-use-transparent-functors
+endsnippet
+
+snippet lw-modernize-use-uncaught-exceptions "" w
+modernize-use-uncaught-exceptions
+endsnippet
+
+snippet lw-modernize-use-using "" w
+modernize-use-using
+endsnippet
+
+snippet lw-mpi-buffer-deref "" w
+mpi-buffer-deref
+endsnippet
+
+snippet lw-mpi-type-mismatch "" w
+mpi-type-mismatch
+endsnippet
+
+snippet lw-objc-assert-equals "" w
+objc-assert-equals
+endsnippet
+
+snippet lw-objc-avoid-nserror-init "" w
+objc-avoid-nserror-init
+endsnippet
+
+snippet lw-objc-dealloc-in-category "" w
+objc-dealloc-in-category
+endsnippet
+
+snippet lw-objc-forbidden-subclassing "" w
+objc-forbidden-subclassing
+endsnippet
+
+snippet lw-objc-missing-hash "" w
+objc-missing-hash
+endsnippet
+
+snippet lw-objc-nsdate-formatter "" w
+objc-nsdate-formatter
+endsnippet
+
+snippet lw-objc-nsinvocation-argument-lifetime "" w
+objc-nsinvocation-argument-lifetime
+endsnippet
+
+snippet lw-objc-property-declaration "" w
+objc-property-declaration
+endsnippet
+
+snippet lw-objc-super-self "" w
+objc-super-self
+endsnippet
+
+snippet lw-openmp-exception-escape "" w
+openmp-exception-escape
+endsnippet
+
+snippet lw-openmp-use-default-none "" w
+openmp-use-default-none
+endsnippet
+
+snippet lw-performance-avoid-endl "" w
+performance-avoid-endl
+endsnippet
+
+snippet lw-performance-faster-string-find "" w
+performance-faster-string-find
+endsnippet
+
+snippet lw-performance-for-range-copy "" w
+performance-for-range-copy
+endsnippet
+
+snippet lw-performance-implicit-conversion-in-loop "" w
+performance-implicit-conversion-in-loop
+endsnippet
+
+snippet lw-performance-inefficient-algorithm "" w
+performance-inefficient-algorithm
+endsnippet
+
+snippet lw-performance-inefficient-string-concatenation "" w
+performance-inefficient-string-concatenation
+endsnippet
+
+snippet lw-performance-inefficient-vector-operation "" w
+performance-inefficient-vector-operation
+endsnippet
+
+snippet lw-performance-move-const-arg "" w
+performance-move-const-arg
+endsnippet
+
+snippet lw-performance-move-constructor-init "" w
+performance-move-constructor-init
+endsnippet
+
+snippet lw-performance-no-automatic-move "" w
+performance-no-automatic-move
+endsnippet
+
+snippet lw-performance-no-int-to-ptr "" w
+performance-no-int-to-ptr
+endsnippet
+
+snippet lw-performance-noexcept-move-constructor "" w
+performance-noexcept-move-constructor
+endsnippet
+
+snippet lw-performance-trivially-destructible "" w
+performance-trivially-destructible
+endsnippet
+
+snippet lw-performance-type-promotion-in-math-fn "" w
+performance-type-promotion-in-math-fn
+endsnippet
+
+snippet lw-performance-unnecessary-copy-initialization "" w
+performance-unnecessary-copy-initialization
+endsnippet
+
+snippet lw-performance-unnecessary-value-param "" w
+performance-unnecessary-value-param
+endsnippet
+
+snippet lw-portability-restrict-system-includes "" w
+portability-restrict-system-includes
+endsnippet
+
+snippet lw-portability-simd-intrinsics "" w
+portability-simd-intrinsics
+endsnippet
+
+snippet lw-portability-std-allocator-const "" w
+portability-std-allocator-const
+endsnippet
+
+snippet lw-readability-avoid-const-params-in-decls "" w
+readability-avoid-const-params-in-decls
+endsnippet
+
+snippet lw-readability-avoid-unconditional-preprocessor-if "" w
+readability-avoid-unconditional-preprocessor-if
+endsnippet
+
+snippet lw-readability-braces-around-statements "" w
+readability-braces-around-statements
+endsnippet
+
+snippet lw-readability-const-return-type "" w
+readability-const-return-type
+endsnippet
+
+snippet lw-readability-container-contains "" w
+readability-container-contains
+endsnippet
+
+snippet lw-readability-container-data-pointer "" w
+readability-container-data-pointer
+endsnippet
+
+snippet lw-readability-container-size-empty "" w
+readability-container-size-empty
+endsnippet
+
+snippet lw-readability-convert-member-functions-to-static "" w
+readability-convert-member-functions-to-static
+endsnippet
+
+snippet lw-readability-delete-null-pointer "" w
+readability-delete-null-pointer
+endsnippet
+
+snippet lw-readability-duplicate-include "" w
+readability-duplicate-include
+endsnippet
+
+snippet lw-readability-else-after-return "" w
+readability-else-after-return
+endsnippet
+
+snippet lw-readability-function-cognitive-complexity "" w
+readability-function-cognitive-complexity
+endsnippet
+
+snippet lw-readability-function-size "" w
+readability-function-size
+endsnippet
+
+snippet lw-readability-identifier-length "" w
+readability-identifier-length
+endsnippet
+
+snippet lw-readability-identifier-naming "" w
+readability-identifier-naming
+endsnippet
+
+snippet lw-readability-implicit-bool-conversion "" w
+readability-implicit-bool-conversion
+endsnippet
+
+snippet lw-readability-inconsistent-declaration-parameter-name "" w
+readability-inconsistent-declaration-parameter-name
+endsnippet
+
+snippet lw-readability-isolate-declaration "" w
+readability-isolate-declaration
+endsnippet
+
+snippet lw-readability-magic-numbers "" w
+readability-magic-numbers
+endsnippet
+
+snippet lw-readability-make-member-function-const "" w
+readability-make-member-function-const
+endsnippet
+
+snippet lw-readability-misleading-indentation "" w
+readability-misleading-indentation
+endsnippet
+
+snippet lw-readability-misplaced-array-index "" w
+readability-misplaced-array-index
+endsnippet
+
+snippet lw-readability-named-parameter "" w
+readability-named-parameter
+endsnippet
+
+snippet lw-readability-non-const-parameter "" w
+readability-non-const-parameter
+endsnippet
+
+snippet lw-readability-operators-representation "" w
+readability-operators-representation
+endsnippet
+
+snippet lw-readability-qualified-auto "" w
+readability-qualified-auto
+endsnippet
+
+snippet lw-readability-redundant-access-specifiers "" w
+readability-redundant-access-specifiers
+endsnippet
+
+snippet lw-readability-redundant-control-flow "" w
+readability-redundant-control-flow
+endsnippet
+
+snippet lw-readability-redundant-declaration "" w
+readability-redundant-declaration
+endsnippet
+
+snippet lw-readability-redundant-function-ptr-dereference "" w
+readability-redundant-function-ptr-dereference
+endsnippet
+
+snippet lw-readability-redundant-member-init "" w
+readability-redundant-member-init
+endsnippet
+
+snippet lw-readability-redundant-preprocessor "" w
+readability-redundant-preprocessor
+endsnippet
+
+snippet lw-readability-redundant-smartptr-get "" w
+readability-redundant-smartptr-get
+endsnippet
+
+snippet lw-readability-redundant-string-cstr "" w
+readability-redundant-string-cstr
+endsnippet
+
+snippet lw-readability-redundant-string-init "" w
+readability-redundant-string-init
+endsnippet
+
+snippet lw-readability-simplify-boolean-expr "" w
+readability-simplify-boolean-expr
+endsnippet
+
+snippet lw-readability-simplify-subscript-expr "" w
+readability-simplify-subscript-expr
+endsnippet
+
+snippet lw-readability-static-accessed-through-instance "" w
+readability-static-accessed-through-instance
+endsnippet
+
+snippet lw-readability-static-definition-in-anonymous-namespace "" w
+readability-static-definition-in-anonymous-namespace
+endsnippet
+
+snippet lw-readability-string-compare "" w
+readability-string-compare
+endsnippet
+
+snippet lw-readability-suspicious-call-argument "" w
+readability-suspicious-call-argument
+endsnippet
+
+snippet lw-readability-uniqueptr-delete-release "" w
+readability-uniqueptr-delete-release
+endsnippet
+
+snippet lw-readability-uppercase-literal-suffix "" w
+readability-uppercase-literal-suffix
+endsnippet
+
+snippet lw-readability-use-anyofallof "" w
+readability-use-anyofallof
+endsnippet
+
+snippet lw-zircon-temporary-objects "" w
+zircon-temporary-objects
 endsnippet

@@ -175,4 +175,10 @@ nnoremap Y "+y
 vnoremap Y "+y
 nnoremap yY ^"+y$
 
+autocmd BufWritePre *.cc :Format 
+autocmd BufWritePre *.cpp :Format 
+autocmd BufWritePre *.h :Format 
+autocmd BufWritePre *.hh :Format 
+autocmd BufWritePre *.go :Format 
+
 source $HOME/.config/nvim/init.lua.vim
