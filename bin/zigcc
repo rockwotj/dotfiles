@@ -1,3 +1,9 @@
 #!/bin/bash
 
-exec zig cc "$@"
+if [ -z "$ZIG_TARGET" ]
+then
+  exec zig cc "$@"
+else 
+  exec zig cc -target $ZIG_TARGET "$@"
+fi
+

@@ -1,3 +1,9 @@
 #!/bin/bash
 
-exec zig c++ "$@"
+if [ -z "$ZIG_TARGET" ]
+then
+  exec zig c++ "$@"
+else 
+  exec zig c++ -target $ZIG_TARGET "$@"
+fi
+

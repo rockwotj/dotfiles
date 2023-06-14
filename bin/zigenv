@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# See: https://zig.news/kristoff/cross-compile-a-c-c-project-with-zig-3599
+
+echo "export CC=zigcc"
+echo "export CXX=zigc++"
+echo "export AR=zigar"
+echo "export RANLIB=zigranlib"
+echo "# ONE OF:"
+echo "export ZIG_TARGET=x86_64-linux-musl"
+echo "export ZIG_TARGET=aarch64-linux-musl"
+echo "export ZIG_TARGET=x86_64-macos-none"
+echo "export ZIG_TARGET=aarch64-macos-none"
