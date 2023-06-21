@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+import argparse
+from pathlib import Path
+import tarfile
+import zipfile
+
+def unpack_tar(file: Path, output=Path):
+    with tarfile.open(file) as tar:
+        tar.extractall(path=str(output))
+
+def unpack_zip(file: Path, output=Path):
+    with zipfile.ZipFile(file) as z:
+        z.extractall(path=str(output))
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('input', type=Path, help='archive to unpack')
+    parser.add_argument('--dir', type=Path, default=Path("."), help='which directory to unpack the archive at')
+    args = parser.parse_args()
+    if args.input.suffix == ".zip":
+        unpack_zip(args.input, args.dir)
+    else:
+        unpack_tar(args.input, args.dir)

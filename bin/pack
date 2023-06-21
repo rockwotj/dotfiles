@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+
+import argparse
+from io import UnsupportedOperation
+from pathlib import Path
+import tarfile
+import zipfile
+
+def create_tar(inputs: list[Path], output: Path):
+    mode = "x"
+    if output.suffixes == [".tar", ".gz"]:
+        mode = "x:gz"
+    elif output.suffixes == [".tar", ".xz"]:
+        mode = "x:xz"
+    elif output.suffixes == [".tar", ".bz2"]:
+        mode = "x:bz2"
+    elif output.suffixes == [".tar"]:
+        pass
+    else:
+        raise UnsupportedOperation(f"unknown tarball type: {output.suffixes}")
+
+    with tarfile.open(output, mode=mode) as tar:
+        for f in inputs:
+            tar.add(f)
+
+def create_zip(inputs: list[Path], output: Path):
+    with zipfile.ZipFile(output, mode="x") as z:
+        for f in inputs:
+            z.write(f)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output","-o", type=Path, default=Path("archive.tar.gz"), help="packed output, supports: tar, tar.gz, zip")
+    parser.add_argument('files', nargs='+', type=Path, help='files to pack')
+    args = parser.parse_args()
+    if args.output.suffix == ".zip":
+        create_zip(args.files, args.output)
+    else:
+        create_tar(args.files, args.output)
+
+
+
