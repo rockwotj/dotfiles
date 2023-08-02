@@ -137,6 +137,9 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+" Remap for code actions selected region
+nmap <leader>a  <Plug>(coc-codeaction-cursor)
+
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 :command SwitchSrc CocCommand clangd.switchSourceHeader
@@ -175,10 +178,10 @@ nnoremap Y "+y
 vnoremap Y "+y
 nnoremap yY ^"+y$
 
-autocmd BufWritePre *.cc :Format 
-autocmd BufWritePre *.cpp :Format 
-autocmd BufWritePre *.h :Format 
-autocmd BufWritePre *.hh :Format 
-autocmd BufWritePre *.go :Format 
+autocmd BufWritePre *.cc :silent! Format 
+autocmd BufWritePre *.cpp :silent! Format
+autocmd BufWritePre *.h :silent! Format
+autocmd BufWritePre *.hh :silent! Format
+autocmd BufWritePre *.go :silent! Format
 
 source $HOME/.config/nvim/init.lua.vim

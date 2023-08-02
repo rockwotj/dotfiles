@@ -48,11 +48,28 @@ snip.rv = f"""// Copyright {datetime.now().year} Redpanda Data, Inc.
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
-// limitations under the License."""
+// limitations under the License.
+"""
 `
 endsnippet
 
-snippet rcl "Redpanda License Header" b
+snippet rcl "Redpanda Community License" b
+`!p from datetime import datetime
+snip.rv = f"""/*
+ * Copyright {datetime.now().year} Redpanda Data, Inc.
+ *
+ * Use of this software is governed by the Business Source License
+ * included in the file licenses/BSL.md
+ *
+ * As of the Change Date specified in that file, in accordance with
+ * the Business Source License, use of this software will be governed
+ * by the Apache License, Version 2.0
+ */
+ """
+`
+endsnippet
+
+snippet rel "Redpanda Enterprise License" b
 `!p from datetime import datetime
 snip.rv = f"""/*
  * Copyright {datetime.now().year} Redpanda Data, Inc.
@@ -62,6 +79,7 @@ snip.rv = f"""/*
  * the License. You may obtain a copy of the License at
  *
  * https://github.com/redpanda-data/redpanda/blob/master/licenses/rcl.md
- */"""
+ */
+ """
 `
 endsnippet

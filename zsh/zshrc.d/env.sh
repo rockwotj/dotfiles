@@ -1,6 +1,9 @@
 if [ "$(uname)" = "Darwin" ]; then
   export ANDROID_HOME="$HOME/Library/Android/sdk/"
 fi
+if [[ -d /usr/local/go/bin ]]; then
+  export PATH=$PATH:/usr/local/go/bin
+fi
 # TODO(rockwood): Don't assume where the repo is cloned.
 if [[ -d $HOME/Workspace/dotfiles/bin ]]; then
   export PATH=$PATH:$HOME/Workspace/dotfiles/bin;
@@ -11,7 +14,6 @@ fi
 if [[ -d $HOME/go/bin ]]; then
   export PATH=$HOME/go/bin:$PATH;
 fi
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 if [[ -d $HOME/.root/npm-packages/bin ]]; then
   export PATH=$HOME/.root/npm-packages/bin:$PATH;
 fi
