@@ -1,6 +1,0 @@
-#!/bin/bash
-
-gcloud compute instances start arm
-sleep 10
-gcloud compute ssh arm
-gcloud compute instances stop arm
