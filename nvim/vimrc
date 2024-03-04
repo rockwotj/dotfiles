@@ -90,6 +90,7 @@ endfunction
 
 " Required coc completion backends
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-tsserver', 'coc-rust-analyzer', 'coc-html', 'coc-snippets']
+autocmd FileType python let b:coc_root_patterns = ['venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json', '.git', '.env']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -132,6 +133,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rf  <Plug>(coc-codeaction-refactor)
+xmap <leader>rf  <Plug>(coc-codeaction-refactor-selected)
 
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -139,6 +142,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " Remap for code actions selected region
 nmap <leader>a  <Plug>(coc-codeaction-cursor)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -183,5 +187,8 @@ autocmd BufWritePre *.cpp :silent! Format
 autocmd BufWritePre *.h :silent! Format
 autocmd BufWritePre *.hh :silent! Format
 autocmd BufWritePre *.go :silent! Format
+autocmd BufWritePre *.rs :silent! Format
+autocmd BufWritePre *.tsx :silent! Format
+autocmd BufWritePre *.ts :silent! Format
 
 source $HOME/.config/nvim/init.lua.vim

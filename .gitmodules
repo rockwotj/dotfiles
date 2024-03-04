@@ -20,9 +20,21 @@
 [submodule "nvim/autoplugins/material.nvim"]
 	path = nvim/autoplugins/material.nvim
 	url = https://github.com/marko-cerovac/material.nvim.git
-[submodule "nvim/autoplugins/vim-test"]
-	path = nvim/autoplugins/vim-test
-	url = https://github.com/vim-test/vim-test.git
-[submodule "nvim/autoplugins/vimux"]
-	path = nvim/autoplugins/vimux
-	url = https://github.com/preservim/vimux.git
+[submodule "nvim/autoplugins/nvim-code-action-menu"]
+	path = nvim/autoplugins/nvim-code-action-menu
+	url = https://github.com/weilbith/nvim-code-action-menu.git
+[submodule "nvim/autoplugins/coc-code-action-menu.nvim"]
+	path = nvim/autoplugins/coc-code-action-menu.nvim
+	url = https://github.com/xiyaowong/coc-code-action-menu.nvim
+[submodule "nvim/autoplugins/catppuccin"]
+	path = nvim/autoplugins/catppuccin
+	url = https://github.com/catppuccin/nvim.git
+[submodule "nvim/autoplugins/tender.vim"]
+	path = nvim/autoplugins/tender.vim
+	url = https://github.com/jacoborus/tender.vim
+[submodule "nvim/autoplugins/onenord.nvim"]
+	path = nvim/autoplugins/onenord.nvim
+	url = https://github.com/rmehri01/onenord.nvim
+[submodule "nvim/autoplugins/gruvbox-material"]
+	path = nvim/autoplugins/gruvbox-material
+	url = https://github.com/sainnhe/gruvbox-material.git

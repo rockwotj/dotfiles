@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
 file="/tmp/git-cleanup-branches-$(uuidgen)"
 
-function removeCurrentBranch {
+removeCurrentBranch() {
   sed -E '/\*/d'
 }
 
-function leftTrim {
+leftTrim() {
   sed -E 's/\*?[[:space:]]+//'
 }
 

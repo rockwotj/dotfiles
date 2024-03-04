@@ -6,3 +6,4 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 
 autoload -Uz compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+zmodload -i zsh/parameter

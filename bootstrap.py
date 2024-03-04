@@ -151,7 +151,7 @@ PPA_PACKAGE_LIST = [
 NEOVIM_RELEASE = "v0.9.0"
 SAPLING_RELEASE = "0.2.20230228-144002-h9440b05e"
 DELTA_RELEASE = "0.15.1"
-CLANG_VERSION = "16"
+CLANG_VERSION = "17"
 
 def bootstrap_ubuntu():
     config = os.path.dirname(path.abspath(__file__))

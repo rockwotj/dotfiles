@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+
+import argparse
+import inspect
+import sys
+import os
+from pathlib import Path
+
+def _shell_exec(cmd: str):
+    os.execlp("zsh", "zsh", "-c", cmd)
+
+def ssh(args):
+    if hasattr(args, "vm") and args.vm:
+        _shell_exec(f"gcloud compute ssh {args.vm}")
+    list_cmd = "gcloud compute instances list --format='value(name)'"
+    _shell_exec(f"gcloud compute ssh $({list_cmd} | fzf)")
+
+def start_vm(args):
+    if hasattr(args, "vm") and args.vm:
+        _shell_exec(f"gcloud compute instances start {args.vm}")
+    list_cmd = "gcloud compute instances list --format='value(name)'"
+    _shell_exec(f"gcloud compute instances start $({list_cmd} | fzf)")
+
+def stop_vm(args):
+    if hasattr(args, "vm") and args.vm:
+        _shell_exec(f"gcloud compute instances stop {args.vm}")
+    list_cmd = "gcloud compute instances list --format='value(name)'"
+    _shell_exec(f"gcloud compute instances stop $({list_cmd} | fzf)")
+
+def upload(args):
+    list_cmd = "gcloud compute instances list --format='value(name)'"
+    paths: list[Path] = args.files
+    files = " ".join([str(p.absolute()) for p in paths])
+    _shell_exec(f"gcloud compute scp {files} $({list_cmd} | fzf):")
+
+parser = argparse.ArgumentParser()
+subparsers = parser.add_subparsers()
+
+ssh_cmd = subparsers.add_parser('ssh')
+ssh_cmd.set_defaults(func=ssh)
+ssh_cmd.add_argument("vm", type=str, nargs='?', help="the vm the ssh into")
+
+upload_cmd = subparsers.add_parser('upload')
+upload_cmd.set_defaults(func=upload)
+upload_cmd.add_argument("files", type=Path, nargs='+', help="files to upload")
+
+
+vm_cmd = subparsers.add_parser('vm')
+vm_subparsers = vm_cmd.add_subparsers()
+
+start_vm_cmd = vm_subparsers.add_parser('start')
+start_vm_cmd.set_defaults(func=start_vm)
+start_vm_cmd.add_argument("vm", type=str, nargs='?', help="the vm to start")
+
+stop_vm_cmd = vm_subparsers.add_parser('stop')
+stop_vm_cmd.set_defaults(func=stop_vm)
+stop_vm_cmd.add_argument("vm", type=str, nargs='?', help="the vm to stop")
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    if not hasattr(args, 'func'):
+        parser.print_help()
+        sys.exit(-1)
+    sig = inspect.signature(args.func)
+    if len(sig.parameters):
+        ret_code = args.func(args)
+    else:
+        ret_code = args.func()
+    sys.exit(ret_code)

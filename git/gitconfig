@@ -14,7 +14,7 @@
   a = add
   aa = add --all
   sync = fetch --prune
-  rb = rebase --interactive
+  rebase-dev = "!git rebase -i $(git merge-base HEAD dev)"
   # Amend the currently staged files to the latest commit
   amend = commit --amend --reuse-message=HEAD
   # Delete all branches except master and the current branch
@@ -30,7 +30,8 @@
   tags = tag -l
   branches = branch -a
   remotes = remote -v
-	count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
+  count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
+  root = rev-parse --show-toplevel
 [merge]
   tool = nvimdiff
   conflictstyle = diff3
@@ -71,9 +72,8 @@
 [credential "https://gist.github.com"]
   helper = 
   helper = !gh auth git-credential
-[spr]
-  branchPrefix = rockwood/spr/
-  requireTestPlan = false
+[rebase]
+  autosquash = true
 [fixup]
   commit = true
   rebase = true

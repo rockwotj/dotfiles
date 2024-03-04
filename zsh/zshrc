@@ -9,3 +9,10 @@ if [ -d $HOME/.zshrc.d ]; then
   done
   unset i
 fi
+
+# bun completions
+[ -s "/home/rockwood/.bun/_bun" ] && source "/home/rockwood/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
