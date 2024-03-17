@@ -9,6 +9,3 @@ if [ -d $HOME/.zshrc.d ]; then
   done
   unset i
 fi
-
-
-eval "$(flox activate --dir=$HOME)"
