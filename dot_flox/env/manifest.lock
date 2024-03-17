@@ -30,6 +30,12 @@
       "neovim": {
         "pkg-path": "neovim"
       },
+      "nodejs_21": {
+        "pkg-path": "nodejs_21"
+      },
+      "ripgrep": {
+        "pkg-path": "ripgrep"
+      },
       "tmux": {
         "pkg-path": "tmux"
       },
@@ -311,6 +317,62 @@
           "pname": "neovim",
           "unfree": false,
           "version": "0.9.4"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "nodejs_21": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "nodejs_21"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Event-driven I/O framework for the V8 JavaScript engine",
+          "license": "MIT",
+          "pname": "nodejs",
+          "unfree": false,
+          "version": "21.6.2"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "ripgrep": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "ripgrep"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A utility that combines the usability of The Silver Searcher with the raw speed of grep",
+          "license": null,
+          "pname": "ripgrep",
+          "unfree": false,
+          "version": "13.0.0"
         },
         "input": {
           "attrs": {
