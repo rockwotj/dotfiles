@@ -6,14 +6,29 @@
       "chezmoi": {
         "pkg-path": "chezmoi"
       },
+      "eza": {
+        "pkg-path": "eza"
+      },
       "gh": {
         "pkg-path": "gh"
       },
       "git": {
         "pkg-path": "git"
       },
+      "libcxxClang": {
+        "pkg-path": "llvmPackages_17.libcxxClang"
+      },
+      "lld": {
+        "pkg-path": "llvmPackages_17.lld"
+      },
+      "lldb": {
+        "pkg-path": "llvmPackages_17.lldb"
+      },
       "neovim": {
         "pkg-path": "neovim"
+      },
+      "tmux": {
+        "pkg-path": "tmux"
       },
       "zsh": {
         "pkg-path": "zsh"
@@ -45,7 +60,11 @@
         "nixpkgs"
       ]
     },
-    "vars": {}
+    "vars": {
+      "EDITOR": "nvim",
+      "GH_EDITOR": "nvim",
+      "VISUAL": "nvim"
+    }
   },
   "packages": {
     "x86_64-linux": {
@@ -62,6 +81,34 @@
           "pname": "chezmoi",
           "unfree": false,
           "version": "2.40.4"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "eza": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "eza"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A modern, maintained replacement for ls",
+          "license": "MIT",
+          "pname": "eza",
+          "unfree": false,
+          "version": "0.18.2"
         },
         "input": {
           "attrs": {
@@ -133,6 +180,93 @@
         },
         "priority": 5
       },
+      "libcxxClang": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "llvmPackages_17",
+          "libcxxClang"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A C language family frontend for LLVM (wrapper script)",
+          "license": "NCSA",
+          "pname": "clang-wrapper",
+          "unfree": false,
+          "version": "17.0.6"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "lld": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "llvmPackages_17",
+          "lld"
+        ],
+        "info": {
+          "broken": false,
+          "description": "The LLVM linker (unwrapped)",
+          "license": "NCSA",
+          "pname": "lld",
+          "unfree": false,
+          "version": "17.0.6"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "lldb": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "llvmPackages_17",
+          "lldb"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A next-generation high-performance debugger",
+          "license": "NCSA",
+          "pname": "lldb",
+          "unfree": false,
+          "version": "17.0.6"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
       "neovim": {
         "attr-path": [
           "legacyPackages",
@@ -146,6 +280,34 @@
           "pname": "neovim",
           "unfree": false,
           "version": "0.9.4"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "tmux": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "tmux"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Terminal multiplexer",
+          "license": "BSD-3-Clause",
+          "pname": "tmux",
+          "unfree": false,
+          "version": "3.3a"
         },
         "input": {
           "attrs": {

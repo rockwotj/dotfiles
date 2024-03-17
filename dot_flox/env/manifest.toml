@@ -13,16 +13,19 @@ neovim.pkg-path = "neovim"
 zsh.pkg-path = "zsh"
 git.pkg-path = "git"
 gh.pkg-path = "gh"
-# hello.pkg-path = "hello"
-# nodejs = { version = "^18.4.2", pkg-path = "nodejs_18" }
+eza.pkg-path = "eza"
+tmux.pkg-path = "tmux"
+libcxxClang.pkg-path = "llvmPackages_17.libcxxClang"
+lld.pkg-path = "llvmPackages_17.lld"
+lldb.pkg-path = "llvmPackages_17.lldb"
 
 # Set an environment variable.
 # These variables may not reference once another
 # and are added to the environment without expansion.
-
 [vars]
-# message = "Howdy"
-# pass-in = "$some-env-var"
+EDITOR = "nvim"
+GH_EDITOR = "nvim"
+VISUAL = "nvim"
 
 # An activation hook will be run when entering the environment.
 # You can define one in the 'hook' table inline via the 'script' field,
