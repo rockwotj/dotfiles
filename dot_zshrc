@@ -11,4 +11,4 @@ if [ -d $HOME/.zshrc.d ]; then
 fi
 
 
-eval "$(flox activate)"
+eval "$(flox activate --dir=$HOME)"

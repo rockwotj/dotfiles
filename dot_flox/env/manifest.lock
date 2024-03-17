@@ -6,6 +6,9 @@
       "chezmoi": {
         "pkg-path": "chezmoi"
       },
+      "delta": {
+        "pkg-path": "delta"
+      },
       "eza": {
         "pkg-path": "eza"
       },
@@ -81,6 +84,34 @@
           "pname": "chezmoi",
           "unfree": false,
           "version": "2.40.4"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "delta": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "delta"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A syntax-highlighting pager for git",
+          "license": "MIT",
+          "pname": "delta",
+          "unfree": false,
+          "version": "0.16.5"
         },
         "input": {
           "attrs": {

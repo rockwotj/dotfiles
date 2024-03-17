@@ -18,6 +18,7 @@ tmux.pkg-path = "tmux"
 libcxxClang.pkg-path = "llvmPackages_17.libcxxClang"
 lld.pkg-path = "llvmPackages_17.lld"
 lldb.pkg-path = "llvmPackages_17.lldb"
+delta.pkg-path = "delta"
 
 # Set an environment variable.
 # These variables may not reference once another
