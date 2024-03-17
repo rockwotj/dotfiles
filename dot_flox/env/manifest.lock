@@ -1,0 +1,217 @@
+{
+  "lockfile-version": 0,
+  "manifest": {
+    "hook": {},
+    "install": {
+      "chezmoi": {
+        "pkg-path": "chezmoi"
+      },
+      "gh": {
+        "pkg-path": "gh"
+      },
+      "git": {
+        "pkg-path": "git"
+      },
+      "neovim": {
+        "pkg-path": "neovim"
+      },
+      "zsh": {
+        "pkg-path": "zsh"
+      }
+    },
+    "options": {
+      "systems": [
+        "x86_64-linux"
+      ]
+    },
+    "registry": {
+      "defaults": {
+        "subtrees": null
+      },
+      "inputs": {
+        "nixpkgs": {
+          "from": {
+            "owner": "NixOS",
+            "ref": "release-23.11",
+            "repo": "nixpkgs",
+            "type": "github"
+          },
+          "subtrees": [
+            "legacyPackages"
+          ]
+        }
+      },
+      "priority": [
+        "nixpkgs"
+      ]
+    },
+    "vars": {}
+  },
+  "packages": {
+    "x86_64-linux": {
+      "chezmoi": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "chezmoi"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Manage your dotfiles across multiple machines, securely",
+          "license": "MIT",
+          "pname": "chezmoi",
+          "unfree": false,
+          "version": "2.40.4"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "gh": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "gh"
+        ],
+        "info": {
+          "broken": false,
+          "description": "GitHub CLI tool",
+          "license": "MIT",
+          "pname": "gh",
+          "unfree": false,
+          "version": "2.39.2"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "git": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "git"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Distributed version control system",
+          "license": "GPL-2.0",
+          "pname": "git",
+          "unfree": false,
+          "version": "2.42.0"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "neovim": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "neovim"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Vim text editor fork focused on extensibility and agility",
+          "license": null,
+          "pname": "neovim",
+          "unfree": false,
+          "version": "0.9.4"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "zsh": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "zsh"
+        ],
+        "info": {
+          "broken": false,
+          "description": "The Z shell",
+          "license": null,
+          "pname": "zsh",
+          "unfree": false,
+          "version": "5.9"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      }
+    }
+  },
+  "registry": {
+    "defaults": {
+      "subtrees": null
+    },
+    "inputs": {
+      "nixpkgs": {
+        "from": {
+          "lastModified": 1710613021,
+          "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+          "owner": "NixOS",
+          "repo": "nixpkgs",
+          "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+          "type": "github"
+        },
+        "subtrees": [
+          "legacyPackages"
+        ]
+      }
+    },
+    "priority": [
+      "nixpkgs"
+    ]
+  }
+}

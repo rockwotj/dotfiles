@@ -1,0 +1,78 @@
+# This is Git's per-user configuration file.
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore_global
+  pager = delta
+[user]
+  name = Tyler Rockwood
+  email = rockwood@redpanda.com
+[alias]
+  co = checkout
+  st = status --short --branch
+  c = commit --signoff
+  f = fixup
+  a = add
+  aa = add --all
+  sync = fetch --prune
+  rebase-dev = "!git rebase -i $(git merge-base HEAD dev)"
+  # Amend the currently staged files to the latest commit
+  amend = commit --amend --reuse-message=HEAD
+  # Delete all branches except master and the current branch
+  cleanup = "!sh $(dirname \"$(readlink $HOME/.gitconfig)\")/cleanup-branches.sh"
+  # TODO: For both of these support looking up the PR in the trailer and using that.
+  files = diff --name-only
+  stat = diff --stat
+  # Pretty log for short
+  lg = log --pretty=oneline -n 20 --graph --abbrev-commit
+  br = "!git for-each-ref refs/heads --color=always --sort -committerdate --format='%(HEAD)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);%(contents:subject);%(color:green)(%(committerdate:relative))%(color:blue);<%(authorname)>' | column -t -s ';'"
+  deep-clone = clone --recursive  
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
+  root = rev-parse --show-toplevel
+[merge]
+  tool = nvimdiff
+  conflictstyle = diff3
+[mergetool]
+  prompt = true
+[mergetool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+[diff]
+  colorMoved = default
+[difftool]
+  prompt = false
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[interactive]
+  diffFilter = delta --color-only
+[add.interactive]
+  useBuiltin = false
+[delta]
+  navigate = true
+  light = false
+  line-numbers = true
+[push]
+  default = upstream
+  followTags = true
+  autoSetupRemote = true
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[gpg]
+  program = gpg
+[init]
+  defaultBranch = main
+[credential "https://github.com"]
+  helper = 
+  helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+  helper = 
+  helper = !gh auth git-credential
+[rebase]
+  autosquash = true
+[include]
+  path = .gitlocalconfig
