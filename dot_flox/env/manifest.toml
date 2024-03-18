@@ -21,6 +21,16 @@ lldb.pkg-path = "llvmPackages_17.lldb"
 delta.pkg-path = "delta"
 ripgrep.pkg-path = "ripgrep"
 nodejs_21.pkg-path = "nodejs_21"
+fzf.pkg-path = "fzf"
+cmake.pkg-path = "cmake"
+gnumake.pkg-path = "gnumake"
+libcxx.pkg-path = "llvmPackages_17.libcxx"
+libcxxabi.pkg-path = "llvmPackages_17.libcxxabi"
+libunwind.pkg-path = "llvmPackages_17.libunwind"
+compiler-rt-libc.pkg-path = "llvmPackages_17.compiler-rt-libc"
+clang-tools_17.pkg-path = "clang-tools_17"
+unzip.pkg-path = "unzip"
+lua-language-server.pkg-path = "lua-language-server"
 
 # Set an environment variable.
 # These variables may not reference once another

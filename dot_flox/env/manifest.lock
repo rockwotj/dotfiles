@@ -6,11 +6,23 @@
       "chezmoi": {
         "pkg-path": "chezmoi"
       },
+      "clang-tools_17": {
+        "pkg-path": "clang-tools_17"
+      },
+      "cmake": {
+        "pkg-path": "cmake"
+      },
+      "compiler-rt-libc": {
+        "pkg-path": "llvmPackages_17.compiler-rt-libc"
+      },
       "delta": {
         "pkg-path": "delta"
       },
       "eza": {
         "pkg-path": "eza"
+      },
+      "fzf": {
+        "pkg-path": "fzf"
       },
       "gh": {
         "pkg-path": "gh"
@@ -18,14 +30,29 @@
       "git": {
         "pkg-path": "git"
       },
+      "gnumake": {
+        "pkg-path": "gnumake"
+      },
+      "libcxx": {
+        "pkg-path": "llvmPackages_17.libcxx"
+      },
       "libcxxClang": {
         "pkg-path": "llvmPackages_17.libcxxClang"
+      },
+      "libcxxabi": {
+        "pkg-path": "llvmPackages_17.libcxxabi"
+      },
+      "libunwind": {
+        "pkg-path": "llvmPackages_17.libunwind"
       },
       "lld": {
         "pkg-path": "llvmPackages_17.lld"
       },
       "lldb": {
         "pkg-path": "llvmPackages_17.lldb"
+      },
+      "lua-language-server": {
+        "pkg-path": "lua-language-server"
       },
       "neovim": {
         "pkg-path": "neovim"
@@ -38,6 +65,9 @@
       },
       "tmux": {
         "pkg-path": "tmux"
+      },
+      "unzip": {
+        "pkg-path": "unzip"
       },
       "zsh": {
         "pkg-path": "zsh"
@@ -90,6 +120,91 @@
           "pname": "chezmoi",
           "unfree": false,
           "version": "2.40.4"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "clang-tools_17": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "clang-tools_17"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Standalone command line tools for C++ development",
+          "license": "NCSA",
+          "pname": "clang-tools",
+          "unfree": false,
+          "version": "17.0.6"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "cmake": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "cmake"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Cross-platform, open-source build system generator",
+          "license": "BSD-3-Clause",
+          "pname": "cmake",
+          "unfree": false,
+          "version": "3.27.7"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "compiler-rt-libc": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "llvmPackages_17",
+          "compiler-rt-libc"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Compiler runtime libraries",
+          "license": null,
+          "pname": "compiler-rt-libc",
+          "unfree": false,
+          "version": "17.0.6"
         },
         "input": {
           "attrs": {
@@ -161,6 +276,34 @@
         },
         "priority": 5
       },
+      "fzf": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "fzf"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A command-line fuzzy finder written in Go",
+          "license": "MIT",
+          "pname": "fzf",
+          "unfree": false,
+          "version": "0.45.0"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
       "gh": {
         "attr-path": [
           "legacyPackages",
@@ -217,6 +360,63 @@
         },
         "priority": 5
       },
+      "gnumake": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "gnumake"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A tool to control the generation of non-source files from sources",
+          "license": "GPL-3.0-or-later",
+          "pname": "gnumake",
+          "unfree": false,
+          "version": "4.4.1"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "libcxx": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "llvmPackages_17",
+          "libcxx"
+        ],
+        "info": {
+          "broken": false,
+          "description": "C++ standard library",
+          "license": null,
+          "pname": "libcxx",
+          "unfree": false,
+          "version": "17.0.6"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
       "libcxxClang": {
         "attr-path": [
           "legacyPackages",
@@ -229,6 +429,64 @@
           "description": "A C language family frontend for LLVM (wrapper script)",
           "license": "NCSA",
           "pname": "clang-wrapper",
+          "unfree": false,
+          "version": "17.0.6"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "libcxxabi": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "llvmPackages_17",
+          "libcxxabi"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Provides C++ standard library support",
+          "license": null,
+          "pname": "libcxxabi",
+          "unfree": false,
+          "version": "17.0.6"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "libunwind": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "llvmPackages_17",
+          "libunwind"
+        ],
+        "info": {
+          "broken": false,
+          "description": "LLVM's unwinder library",
+          "license": "NCSA",
+          "pname": "libunwind",
           "unfree": false,
           "version": "17.0.6"
         },
@@ -289,6 +547,34 @@
           "pname": "lldb",
           "unfree": false,
           "version": "17.0.6"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "lua-language-server": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "lua-language-server"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A language server that offers Lua language support",
+          "license": "MIT",
+          "pname": "lua-language-server",
+          "unfree": false,
+          "version": "3.7.3"
         },
         "input": {
           "attrs": {
@@ -401,6 +687,34 @@
           "pname": "tmux",
           "unfree": false,
           "version": "3.3a"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "unzip": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "unzip"
+        ],
+        "info": {
+          "broken": false,
+          "description": "An extraction utility for archives compressed in .zip format",
+          "license": null,
+          "pname": "unzip",
+          "unfree": false,
+          "version": "6.0"
         },
         "input": {
           "attrs": {

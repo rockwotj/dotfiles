@@ -1,0 +1,85 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+# https://www.sirver.net/blog/2012/03/31/fourth-episode-of-ultisnips-screencast/
+global !p
+def complete(t: str, opts: list[str]) -> list[str]:
+  if t:
+    opts = [m[len(t):] for m in opts if m.startswith(t)]
+  if len(opts) == 1:
+    return opts[0]
+  return "(" + "|".join(opts) + ")"
+endglobal
+
+snippet apache2 "Apache 2.0 Header" b
+`!p from datetime import datetime
+snip.rv = f"""// Copyright {datetime.now().year} Redpanda Data, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+"""
+`
+endsnippet
+
+snippet rcl "Redpanda Community License" b
+`!p from datetime import datetime
+snip.rv = f"""/*
+ * Copyright {datetime.now().year} Redpanda Data, Inc.
+ *
+ * Use of this software is governed by the Business Source License
+ * included in the file licenses/BSL.md
+ *
+ * As of the Change Date specified in that file, in accordance with
+ * the Business Source License, use of this software will be governed
+ * by the Apache License, Version 2.0
+ */
+ """
+`
+endsnippet
+
+snippet rel "Redpanda Enterprise License" b
+`!p from datetime import datetime
+snip.rv = f"""/*
+ * Copyright {datetime.now().year} Redpanda Data, Inc.
+ *
+ * Licensed as a Redpanda Enterprise file under the Redpanda Community
+ * License (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * https://github.com/redpanda-data/redpanda/blob/master/licenses/rcl.md
+ */
+ """
+`
+endsnippet
