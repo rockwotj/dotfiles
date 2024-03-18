@@ -31,6 +31,8 @@ clang-tools_17.pkg-path = "clang-tools_17"
 gopls.pkg-path = "gopls"
 go.pkg-path = "go"
 cargo.pkg-path = "cargo"
+starship.pkg-path = "starship"
+go-task.pkg-path = "go-task"
 
 # Set an environment variable.
 # These variables may not reference once another

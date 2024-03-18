@@ -35,6 +35,9 @@
       "go": {
         "pkg-path": "go"
       },
+      "go-task": {
+        "pkg-path": "go-task"
+      },
       "gopls": {
         "pkg-path": "gopls"
       },
@@ -61,6 +64,9 @@
       },
       "ripgrep": {
         "pkg-path": "ripgrep"
+      },
+      "starship": {
+        "pkg-path": "starship"
       },
       "tmux": {
         "pkg-path": "tmux"
@@ -414,6 +420,34 @@
         },
         "priority": 5
       },
+      "go-task": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "go-task"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A task runner / simpler Make alternative written in Go",
+          "license": "MIT",
+          "pname": "go-task",
+          "unfree": false,
+          "version": "3.31.0"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
       "gopls": {
         "attr-path": [
           "legacyPackages",
@@ -655,6 +689,34 @@
           "pname": "ripgrep",
           "unfree": false,
           "version": "13.0.0"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "starship": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "starship"
+        ],
+        "info": {
+          "broken": false,
+          "description": "A minimal, blazing fast, and extremely customizable prompt for any shell",
+          "license": "ISC",
+          "pname": "starship",
+          "unfree": false,
+          "version": "1.17.1"
         },
         "input": {
           "attrs": {
