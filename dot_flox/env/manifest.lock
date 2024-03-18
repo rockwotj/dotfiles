@@ -2,6 +2,9 @@
   "lockfile-version": 0,
   "manifest": {
     "install": {
+      "cargo": {
+        "pkg-path": "cargo"
+      },
       "chezmoi": {
         "pkg-path": "chezmoi"
       },
@@ -28,6 +31,12 @@
       },
       "gnumake": {
         "pkg-path": "gnumake"
+      },
+      "go": {
+        "pkg-path": "go"
+      },
+      "gopls": {
+        "pkg-path": "gopls"
       },
       "libcxx": {
         "pkg-path": "llvmPackages_17.libcxx"
@@ -97,6 +106,34 @@
   },
   "packages": {
     "x86_64-linux": {
+      "cargo": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "cargo"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Downloads your Rust project's dependencies and builds your project",
+          "license": null,
+          "pname": "cargo",
+          "unfree": false,
+          "version": "1.73.0"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
       "chezmoi": {
         "attr-path": [
           "legacyPackages",
@@ -334,6 +371,62 @@
           "pname": "gnumake",
           "unfree": false,
           "version": "4.4.1"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "go": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "go"
+        ],
+        "info": {
+          "broken": false,
+          "description": "The Go Programming language",
+          "license": "BSD-3-Clause",
+          "pname": "go",
+          "unfree": false,
+          "version": "1.21.8"
+        },
+        "input": {
+          "attrs": {
+            "lastModified": 1710613021,
+            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
+            "owner": "NixOS",
+            "repo": "nixpkgs",
+            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
+            "type": "github"
+          },
+          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
+          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
+        },
+        "priority": 5
+      },
+      "gopls": {
+        "attr-path": [
+          "legacyPackages",
+          "x86_64-linux",
+          "gopls"
+        ],
+        "info": {
+          "broken": false,
+          "description": "Official language server for the Go language",
+          "license": "BSD-3-Clause",
+          "pname": "gopls",
+          "unfree": false,
+          "version": "0.14.2"
         },
         "input": {
           "attrs": {

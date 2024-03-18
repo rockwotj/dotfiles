@@ -28,6 +28,9 @@ lldb.pkg-path = "llvmPackages_17.lldb"
 libcxxabi.pkg-path = "llvmPackages_17.libcxxabi"
 libcxxClang.pkg-path = "llvmPackages_17.libcxxClang"
 clang-tools_17.pkg-path = "clang-tools_17"
+gopls.pkg-path = "gopls"
+go.pkg-path = "go"
+cargo.pkg-path = "cargo"
 
 # Set an environment variable.
 # These variables may not reference once another
