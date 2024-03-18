@@ -15,22 +15,19 @@ git.pkg-path = "git"
 gh.pkg-path = "gh"
 eza.pkg-path = "eza"
 tmux.pkg-path = "tmux"
-libcxxClang.pkg-path = "llvmPackages_17.libcxxClang"
-lld.pkg-path = "llvmPackages_17.lld"
-lldb.pkg-path = "llvmPackages_17.lldb"
 delta.pkg-path = "delta"
 ripgrep.pkg-path = "ripgrep"
 nodejs_21.pkg-path = "nodejs_21"
 fzf.pkg-path = "fzf"
 cmake.pkg-path = "cmake"
 gnumake.pkg-path = "gnumake"
-libcxx.pkg-path = "llvmPackages_17.libcxx"
-libcxxabi.pkg-path = "llvmPackages_17.libcxxabi"
-libunwind.pkg-path = "llvmPackages_17.libunwind"
-compiler-rt-libc.pkg-path = "llvmPackages_17.compiler-rt-libc"
-clang-tools_17.pkg-path = "clang-tools_17"
 unzip.pkg-path = "unzip"
 lua-language-server.pkg-path = "lua-language-server"
+libcxx.pkg-path = "llvmPackages_17.libcxx"
+lldb.pkg-path = "llvmPackages_17.lldb"
+libcxxabi.pkg-path = "llvmPackages_17.libcxxabi"
+libcxxClang.pkg-path = "llvmPackages_17.libcxxClang"
+clang-tools_17.pkg-path = "clang-tools_17"
 
 # Set an environment variable.
 # These variables may not reference once another
@@ -39,18 +36,6 @@ lua-language-server.pkg-path = "lua-language-server"
 EDITOR = "nvim"
 GH_EDITOR = "nvim"
 VISUAL = "nvim"
-
-# An activation hook will be run when entering the environment.
-# You can define one in the 'hook' table inline via the 'script' field,
-# or provide a file using the 'file' field.
-# If 'file' is provided, the path should be relative to this file.
-# If both 'file' and 'script' are provided,
-# only the hook defined in 'file' will be run .
-
-[hook]
-# script = """
-#   echo "it's gettin flox in here";
-# """
 
 # An environment that works on one system is guaranteed to work on the
 # same type of system,

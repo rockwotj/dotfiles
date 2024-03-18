@@ -1,7 +1,6 @@
 {
   "lockfile-version": 0,
   "manifest": {
-    "hook": {},
     "install": {
       "chezmoi": {
         "pkg-path": "chezmoi"
@@ -11,9 +10,6 @@
       },
       "cmake": {
         "pkg-path": "cmake"
-      },
-      "compiler-rt-libc": {
-        "pkg-path": "llvmPackages_17.compiler-rt-libc"
       },
       "delta": {
         "pkg-path": "delta"
@@ -41,12 +37,6 @@
       },
       "libcxxabi": {
         "pkg-path": "llvmPackages_17.libcxxabi"
-      },
-      "libunwind": {
-        "pkg-path": "llvmPackages_17.libunwind"
-      },
-      "lld": {
-        "pkg-path": "llvmPackages_17.lld"
       },
       "lldb": {
         "pkg-path": "llvmPackages_17.lldb"
@@ -176,35 +166,6 @@
           "pname": "cmake",
           "unfree": false,
           "version": "3.27.7"
-        },
-        "input": {
-          "attrs": {
-            "lastModified": 1710613021,
-            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
-            "owner": "NixOS",
-            "repo": "nixpkgs",
-            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
-            "type": "github"
-          },
-          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
-          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
-        },
-        "priority": 5
-      },
-      "compiler-rt-libc": {
-        "attr-path": [
-          "legacyPackages",
-          "x86_64-linux",
-          "llvmPackages_17",
-          "compiler-rt-libc"
-        ],
-        "info": {
-          "broken": false,
-          "description": "Compiler runtime libraries",
-          "license": null,
-          "pname": "compiler-rt-libc",
-          "unfree": false,
-          "version": "17.0.6"
         },
         "input": {
           "attrs": {
@@ -458,64 +419,6 @@
           "description": "Provides C++ standard library support",
           "license": null,
           "pname": "libcxxabi",
-          "unfree": false,
-          "version": "17.0.6"
-        },
-        "input": {
-          "attrs": {
-            "lastModified": 1710613021,
-            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
-            "owner": "NixOS",
-            "repo": "nixpkgs",
-            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
-            "type": "github"
-          },
-          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
-          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
-        },
-        "priority": 5
-      },
-      "libunwind": {
-        "attr-path": [
-          "legacyPackages",
-          "x86_64-linux",
-          "llvmPackages_17",
-          "libunwind"
-        ],
-        "info": {
-          "broken": false,
-          "description": "LLVM's unwinder library",
-          "license": "NCSA",
-          "pname": "libunwind",
-          "unfree": false,
-          "version": "17.0.6"
-        },
-        "input": {
-          "attrs": {
-            "lastModified": 1710613021,
-            "narHash": "sha256-1N4xaH1AR/WZLUwq+zgB/VsG4LEc00nhYsykxflw/pM=",
-            "owner": "NixOS",
-            "repo": "nixpkgs",
-            "rev": "a37f1e8b22777d0f9732e8deb43b40fb5029c16a",
-            "type": "github"
-          },
-          "fingerprint": "a5fb536d3d7b215086244b786d33941242c4d2c5ad81e68a62633b69b8202edc",
-          "url": "github:NixOS/nixpkgs/a37f1e8b22777d0f9732e8deb43b40fb5029c16a"
-        },
-        "priority": 5
-      },
-      "lld": {
-        "attr-path": [
-          "legacyPackages",
-          "x86_64-linux",
-          "llvmPackages_17",
-          "lld"
-        ],
-        "info": {
-          "broken": false,
-          "description": "The LLVM linker (unwrapped)",
-          "license": "NCSA",
-          "pname": "lld",
           "unfree": false,
           "version": "17.0.6"
         },
