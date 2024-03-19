@@ -18,7 +18,9 @@ sudo apt install -y \
 	golang \
 	git-absorb \
 	cmake \
-	make
+	make \
+	fzf \
+	ripgrep
 
 curl -sS https://starship.rs/install.sh | sh
 

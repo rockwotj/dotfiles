@@ -307,6 +307,7 @@ require("lazy").setup({
           vim.keymap.set('n', '<leader>f', function()
             vim.lsp.buf.format { async = true }
           end, opts)
+          vim.keymap.set('n', '<Tab>', '<cmd>ClangdSwitchSourceHeader<cr>', opts)
         end,
       })
     end
