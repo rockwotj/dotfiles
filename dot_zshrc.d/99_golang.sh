@@ -1,3 +1,3 @@
 export GOBIN="$HOME/.local/bin"
 mkdir -p $GOBIN
-export GOPATH="$HOME/home/go"
+export GOPATH="$HOME/code/go"
