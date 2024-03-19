@@ -56,6 +56,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- I always mistype these...
+vim.cmd('command! W w')
+vim.cmd('command! WQ wq')
+vim.cmd('command! Wq wq')
+vim.cmd('command! Q q')
+vim.cmd('command! X x')
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -133,6 +140,7 @@ require("lazy").setup({
           vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
           vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
           vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+          vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = '[S]earch [F]iles' })
           vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
           vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
           vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -250,14 +258,9 @@ require("lazy").setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
-        go_pls = {},
+        gopls = {},
         lua_ls = {
           on_init = function(client)
-            local path = client.workspace_folders[1].name
-            -- If this is a lua project then abort
-            if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-              return
-            end
             -- otherwise here are default settings for neovim config
             client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
               runtime = {
@@ -361,6 +364,7 @@ require("lazy").setup({
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           { name = 'ultisnips' },
+          { name = 'path' },
         }, {
           { name = 'buffer' },
         })
@@ -414,7 +418,7 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'html', 'markdown', 'vim', 'vimdoc', 'lua' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
