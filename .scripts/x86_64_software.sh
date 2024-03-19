@@ -16,7 +16,9 @@ sudo apt install -y \
 	python3-pip \
 	lsd \
 	golang \
-	git-absorb
+	git-absorb \
+	cmake \
+	make
 
 curl -sS https://starship.rs/install.sh | sh
 
