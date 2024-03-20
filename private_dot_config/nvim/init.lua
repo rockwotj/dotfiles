@@ -122,9 +122,17 @@ require("lazy").setup({
           return vim.fn.executable 'make' == 1
         end,
         config = function()
+          local actions = require 'telescope.actions'
+
           require('telescope').setup {
-            -- You can put your default mappings / updates / etc. in here
-            --  All the info you're looking for is in `:help telescope.setup()`
+            defaults = {
+              mappings = {
+                i = {
+                  ["<C-j>"] = actions.move_selection_next,
+                  ["<C-k>"] = actions.move_selection_previous,
+                },
+              },
+            },
             extensions = {
               ['ui-select'] = {
                 require('telescope.themes').get_dropdown(),
@@ -294,7 +302,7 @@ require("lazy").setup({
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+          vim.keymap.set('n', '<leader>sh', vim.lsp.buf.signature_help, opts)
           vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
           vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
           vim.keymap.set('n', '<leader>wl', function()
