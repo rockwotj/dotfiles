@@ -43,3 +43,6 @@ sudo dpkg -i /tmp/git-delta.deb
 
 curl -Lo /tmp/vivid.deb "https://github.com/sharkdp/vivid/releases/download/v0.9.0/vivid_0.9.0_amd64.deb"
 sudo dpkg -i /tmp/vivid.deb
+
+curl -Lo /tmp/bat.deb https://github.com/sharkdp/bat/releases/download/v0.24.0/bat_0.24.0_amd64.deb
+sudo dpkg -i /tmp/bat.deb
