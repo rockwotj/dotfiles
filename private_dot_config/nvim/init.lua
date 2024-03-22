@@ -27,7 +27,6 @@ vim.opt.updatetime = 250
 --  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
@@ -267,6 +266,7 @@ require("lazy").setup({
       local servers = {
         clangd = {},
         gopls = {},
+        rust_analyzer = {},
         lua_ls = {
           on_init = function(client)
             -- otherwise here are default settings for neovim config
@@ -334,12 +334,24 @@ require("lazy").setup({
         end
       },
       'quangnguyen30192/cmp-nvim-ultisnips',
-
+      {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true,
+        -- use opts = {} for passing setup options
+        -- this is equalent to setup({}) function
+        opts = {
+          disable_filetype = { "TelescopePrompt", "vim" },
+        },
+      },
       -- Adds other completion capabilities.
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
+      'petertriho/cmp-git',
     },
     config = function()
       local cmp = require 'cmp'
@@ -369,6 +381,17 @@ require("lazy").setup({
               fallback()
             end
           end, { "i", "s", "c", }),
+          ["<CR>"] = cmp.mapping({
+            i = function(fallback)
+              if cmp.visible() and cmp.get_active_entry() then
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+              else
+                fallback()
+              end
+            end,
+            s = cmp.mapping.confirm({ select = true }),
+            c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+          }),
         },
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
@@ -385,6 +408,20 @@ require("lazy").setup({
           { name = 'buffer' },
         })
       })
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
+        })
+      })
+
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
     end
   },
   { -- Autoformat
