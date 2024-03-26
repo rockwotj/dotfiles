@@ -46,3 +46,6 @@ sudo dpkg -i /tmp/vivid.deb
 
 curl -Lo /tmp/bat.deb https://github.com/sharkdp/bat/releases/download/v0.24.0/bat_0.24.0_amd64.deb
 sudo dpkg -i /tmp/bat.deb
+
+curl -Lo /tmp/bottom.deb https://github.com/ClementTsang/bottom/releases/download/0.9.6/bottom_0.9.6_amd64.deb
+sudo dpkg -i /tmp/bottom.deb

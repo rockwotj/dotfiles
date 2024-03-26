@@ -12,9 +12,8 @@ def signal_handler(sig, frame):
         try:
             proc.wait(1)
         except:
-            if proc.poll() == None:
-                print('Killing process')
-                proc.kill()
+            print('Killing process')
+            proc.kill()
     sys.exit(0)
 
 signal.signal(signal.SIGINT, signal_handler)
