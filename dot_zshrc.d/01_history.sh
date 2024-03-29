@@ -14,3 +14,4 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 
 bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward

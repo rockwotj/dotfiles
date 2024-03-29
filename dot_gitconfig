@@ -10,15 +10,14 @@
   co = checkout
   st = status --short --branch
   c = commit --signoff
-  f = fixup
+  f = absorb
   a = add
   aa = add --all
   sync = fetch --prune
+  rb = rebase-dev
   rebase-dev = "!git rebase -i $(git merge-base HEAD dev)"
   # Amend the currently staged files to the latest commit
   amend = commit --amend --reuse-message=HEAD
-  # Delete all branches except master and the current branch
-  cleanup = "!sh $(dirname \"$(readlink $HOME/.gitconfig)\")/cleanup-branches.sh"
   # TODO: For both of these support looking up the PR in the trailer and using that.
   files = diff --name-only
   stat = diff --stat
