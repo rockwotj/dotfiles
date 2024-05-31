@@ -5,11 +5,11 @@
   pager = delta
 [user]
   name = Tyler Rockwood
-  email = rockwood@redpanda.com
+  email = {{ .email | quote }}
 [alias]
   co = checkout
   st = status --short --branch
-  c = commit --signoff
+  c = commit
   f = absorb
   a = add
   aa = add --all

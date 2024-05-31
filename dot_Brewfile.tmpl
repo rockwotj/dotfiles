@@ -1,0 +1,26 @@
+tap "homebrew/bundle"
+brew "bat"
+brew "bazelisk"
+brew "bottom"
+brew "fzf"
+brew "gh"
+brew "git-absorb"
+brew "git-delta"
+brew "lsd"
+brew "lua-language-server"
+brew "neovim"
+brew "node"
+brew "pyright"
+brew "ripgrep"
+brew "rustup-init"
+brew "sd"
+brew "spr"
+brew "starship"
+brew "tmux"
+brew "vivid"
+brew "zsh"
+
+{{ if eq .chezmoi.os "linux" -}}
+brew "xclip"
+{{ else -}}
+{{ end -}}
