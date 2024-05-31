@@ -1,4 +1,4 @@
 #!/bin/bash
 
 brew bundle install --global
-chsh -s $(which zsh)
+chsh --shell $(which zsh)
