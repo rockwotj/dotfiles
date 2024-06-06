@@ -7,6 +7,8 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:#394260 bg:#212736)\
+${custom.venv_parent}\
+[](fg:#212736 bg:#14191e)\
 \n$character"""
 
 add_newline = true
@@ -30,3 +32,9 @@ format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 success_symbol = '[\$](green)'
 error_symbol = '[\$](red)'
 vimcmd_symbol = '[\$](purple)'
+
+[custom.venv_parent]
+command = 'echo ${VIRTUAL_ENV#$HOME/code/}'
+symbol = '🐍 '
+when = ''' test "$VIRTUAL_ENV" '''
+format = '[[( $symbol${output})](fg:#769ff0 bg:#212736)]($style)'
