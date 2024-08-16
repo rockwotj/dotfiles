@@ -293,6 +293,7 @@ require("lazy").setup({
           filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
         },
         gopls = {},
+        tsserver = {},
         rust_analyzer = {},
         basedpyright = {},
         lua_ls = {
@@ -469,6 +470,7 @@ require("lazy").setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        bzl = { 'buildifier' },
       },
     },
   },
