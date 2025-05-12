@@ -296,6 +296,7 @@ require("lazy").setup({
         tsserver = {},
         rust_analyzer = {},
         basedpyright = {},
+        ts_ls = {},
         lua_ls = {
           on_init = function(client)
             -- otherwise here are default settings for neovim config
@@ -346,6 +347,7 @@ require("lazy").setup({
             vim.lsp.buf.format { async = true }
           end, opts)
           vim.keymap.set('n', '<Tab>', '<cmd>ClangdSwitchSourceHeader<cr>', opts)
+          vim.keymap.set('n', '<leader>d', function() vim.diagnostic.open_float() end, opts)
         end,
       })
     end
@@ -382,6 +384,21 @@ require("lazy").setup({
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
       'petertriho/cmp-git',
+      {
+        "zbirenbaum/copilot-cmp",
+        event = "InsertEnter",
+        config = function() require("copilot_cmp").setup() end,
+        dependencies = {
+          "zbirenbaum/copilot.lua",
+          cmd = "Copilot",
+          config = function()
+            require("copilot").setup({
+              suggestion = { enabled = false },
+              panel = { enabled = false },
+            })
+          end,
+        },
+      },
     },
     config = function()
       local cmp = require 'cmp'
@@ -424,6 +441,7 @@ require("lazy").setup({
           end),
         },
         sources = cmp.config.sources({
+          { name = 'copilot' },
           { name = 'nvim_lsp' },
           { name = 'ultisnips' },
           { name = 'path' },
@@ -520,5 +538,17 @@ require("lazy").setup({
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
+      { "nvim-lua/plenary.nvim" },  -- for curl, log and async functions
+    },
+    build = "make tiktoken",        -- Only on MacOS or Linux
+    opts = {
+      -- See Configuration section for options
+    },
+    -- See Commands section for default commands if you want to lazy load on them
   },
 })

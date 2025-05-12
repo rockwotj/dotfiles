@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 
 def _shell_exec(cmd: str):
+    print(cmd)
     os.execlp("zsh", "zsh", "-c", cmd)
 
 def ssh(args):
@@ -33,6 +34,10 @@ def upload(args):
     files = " ".join([str(p.absolute()) for p in paths])
     _shell_exec(f"gcloud compute scp {files} $({list_cmd} | fzf):")
 
+def download(args):
+    list_cmd = "gcloud compute instances list --format='value(name)'"
+    _shell_exec(f"gcloud compute scp $({list_cmd} | fzf):{str(args.file)} .")
+
 parser = argparse.ArgumentParser()
 subparsers = parser.add_subparsers()
 
@@ -44,6 +49,9 @@ upload_cmd = subparsers.add_parser('upload')
 upload_cmd.set_defaults(func=upload)
 upload_cmd.add_argument("files", type=Path, nargs='+', help="files to upload")
 
+upload_cmd = subparsers.add_parser('download')
+upload_cmd.set_defaults(func=download)
+upload_cmd.add_argument("file", type=str, help="files to download")
 
 vm_cmd = subparsers.add_parser('vm')
 vm_subparsers = vm_cmd.add_subparsers()
