@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import shlex
+import subprocess
+import time
+
+# GCP configuration
+MACHINE_TYPE = {
+  "x64": {
+    "m": "c4-standard-32",
+    "l": "c4-standard-48",
+    "xl": "c4-standard-96",
+  },
+  "arm": {
+    "m": "c4a-standard-32",
+    "l": "c4a-standard-48",
+    "xl": "c4a-standard-72",
+  },
+}
+IMAGE_PROJECT = "ubuntu-os-cloud"
+IMAGE_FAMILY = {
+  "x64": "ubuntu-2404-lts-amd64",
+  "arm": "ubuntu-2404-lts-arm64",
+}
+DISK_SIZE = {
+  "m":  "128GB",
+  "l":  "256GB",
+  "xl": "512GB",
+}
+
+def run_command(command, quiet=False):
+    """Run a shell command and return the output."""
+    print(f"Executing: {command}")
+    subprocess.run(command, check=True, shell=True, capture_output=quiet, text=True)
+
+class DockerCloud(object):
+
+  def __init__(self, vm_name, zone):
+    self.vm_name = vm_name
+    self.zone = zone
+
+  def create_vm(self, size, arch):
+      """Creates a temporary VM on GCP."""
+      print(f"Creating VM: {self.vm_name}...")
+      machine = MACHINE_TYPE[arch][size]
+      image = IMAGE_FAMILY[arch]
+      disk_size = DISK_SIZE[size]
+      run_command(f"gcloud compute instances create {self.vm_name} "
+                  f"--zone={self.zone} --machine-type={machine} "
+                  f"--image-family={image} --image-project={IMAGE_PROJECT} "
+                  f"--boot-disk-size={disk_size} "
+                  f"--scopes=storage-full,compute-rw --tags=allow-ssh --quiet")
+
+  def wait_for_vm(self):
+      """Waits until the VM is ready for SSH."""
+      print("Waiting for VM to be ready for SSH...")
+      while True:
+          try:
+              run_command(f"gcloud compute ssh {self.vm_name} --zone={self.zone} --command='echo VM is ready' --quiet", quiet=True)
+              break
+          except:
+              print("Still waiting...")
+              time.sleep(1)
+
+  def install_docker(self):
+      """Installs Docker on the VM."""
+      print("Installing Docker on VM...")
+      run_command(f"gcloud compute ssh {self.vm_name} --zone={self.zone} --command='curl -fsSL https://get.docker.com | bash'")
+
+  def upload_dockerfile(self, dockerfile_path):
+      """Uploads the Dockerfile to the VM."""
+      print(f"Uploading {dockerfile_path} to VM...")
+      run_command(f"gcloud compute scp {dockerfile_path} {self.vm_name}:~/Dockerfile --zone={self.zone}")
+
+  def build_docker_image(self, output_file, args, compression_level):
+      """Builds the Docker image on the VM."""
+      print(f"Building Docker image on VM...")
+      args = shlex.join(args)
+      run_command(
+        f"gcloud compute ssh {self.vm_name} --zone={self.zone} "
+        f"--command='sudo docker build -t build-job -f ~/Dockerfile --output type=tar,dest=- {args} ~ | zstd -{compression_level} -o {output_file}'"
+      )
+
+  def download_output(self, remote_file, local_path):
+      """Downloads the output file from the VM."""
+      print(f"Downloading output file to {local_path}...")
+      run_command(f"gcloud compute scp {self.vm_name}:~/{remote_file} {local_path} --zone={self.zone}")
+
+  def delete_vm(self):
+      """Deletes the temporary VM."""
+      print(f"Deleting VM {self.vm_name}...")
+      run_command(f"gcloud compute instances delete {self.vm_name} --zone={self.zone} --quiet")
+
+def main():
+    parser = argparse.ArgumentParser(description="Run a Docker job on a temporary GCP VM")
+    parser.add_argument("--file", default="Dockerfile", help="Path to the local Dockerfile")
+    parser.add_argument("--output", default="archive.tar.zst", help="Expected output filename inside the VM")
+    parser.add_argument("--keep", action='store_true', help="Don't delete the VM")
+    parser.add_argument("--size", default='m', choices=('m', 'l', 'xl'), help="VM size (*m*edium, *l*arge or e*x*tra-*l*arge)")
+    parser.add_argument("--arch", default='x64', choices=('x64', 'arm'), help="VM architecture x64 or arm")
+    parser.add_argument("--vm", default=f"temp-vm-{int(time.time())}", help="name of the VM")
+    parser.add_argument("--zone", default="us-central1-c", help="zone of the VM")
+    parser.add_argument("--zstd", default=3, help="zstd compression level")
+    parser.add_argument("rest", nargs='*', help="args to pass to docker build")
+
+    args = parser.parse_args()
+
+    dc = DockerCloud(args.vm, args.zone)
+    try:
+        dc.create_vm(args.size, args.arch)
+        dc.wait_for_vm()
+        dc.install_docker()
+        dc.upload_dockerfile(args.file)
+        dc.build_docker_image(output_file=args.output, args=args.rest, compression_level=args.zstd)
+        dc.download_output(args.output, args.output)
+    finally:
+        if not args.keep:
+            dc.delete_vm()
+
+    print(f"Process complete. Output saved to {args.output}.")
+
+if __name__ == "__main__":
+    main()
+
+

@@ -1,0 +1,50 @@
+#!/bin/bash
+
+function usage() {
+    echo "Git command to help you select which commit to create a fixup commit for."
+    echo ""
+    echo "The command will let you select a commit from a range and commit the current"
+    echo "staging area using the selected commit as argument to the --fixup= option. Any"
+    echo "extra options passed to this command will be forwarded to the git commit"
+    echo "command."
+    echo ""
+    echo "The range will be the current upstream to HEAD. If no upstream is set for the"
+    echo "current branch, the default range will be used. You can set the default range"
+    echo "with GIT_DEFAULT_FIXUP_RANGE, if not set, origin/master..HEAD will be used as"
+    echo "default range."
+    echo "Example: GIT_DEFAULT_FIXUP_RANGE=origin/develop..HEAD git-fixup."
+    echo "Note that a configured upstream branch will take precedence over the default range."
+    echo ""
+    echo "This command depends on fzf (https://github.com/junegunn/fzf)"
+    echo ""
+    echo "git-fixup"
+    echo -e "\t-h --help"
+    echo ""
+}
+
+while [ ! $# -eq 0 ]; do
+    case "$1" in
+    --help | -h)
+        usage
+        exit
+        ;;
+    esac
+    shift
+done
+
+upstream=$(git rev-parse --abbrev-ref @{upstream} &>/dev/null)
+if [ -z "${upstream}" ]; then
+    fixup_range="$(gh repo view --json defaultBranchRef | jq -r '.defaultBranchRef.name')..HEAD"
+else
+    fixup_range="${upstream}..HEAD"
+fi
+
+parent=$(git log --no-merges --oneline ${fixup_range} |
+    fzf --height ${FZF_TMUX_HEIGHT:-40%} |
+    cut -d' ' -f1)
+
+if [ -z "${parent}" ]; then
+    echo "No commit found to fix."
+else
+    git commit --fixup=${parent} "$@"
+fi
