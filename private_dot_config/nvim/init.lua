@@ -64,6 +64,26 @@ vim.cmd('command! Wq wq')
 vim.cmd('command! Q q')
 vim.cmd('command! X x')
 
+-- Root markers: look for these to determine the project root
+local root_names = { '.git', '.vimroot' }
+
+-- Function to find and set project root
+local function set_root()
+  local cwd = vim.fn.getcwd()
+  local root_file = vim.fs.find(root_names, { path = cwd, upward = true })[1]
+  if not root_file then return end
+  local root = vim.fs.dirname(root_file)
+  vim.fn.chdir(root)
+  print("Changed directory to project root: " .. root)
+end
+
+-- Register on VimEnter (runs only once at startup)
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = vim.api.nvim_create_augroup('MyAutoRoot', { clear = true }),
+  callback = set_root,
+})
+
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -100,15 +120,12 @@ require("lazy").setup({
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-    'folke/tokyonight.nvim',
-    priority = 1000, -- make sure to load this before all the other start plugins
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'catppuccin-latte'
       vim.cmd.hi 'Comment gui=none'
     end,
   },
@@ -267,15 +284,15 @@ require("lazy").setup({
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.server_capabilities.documentHighlightProvider then
-            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-              buffer = event.buf,
-              callback = vim.lsp.buf.document_highlight,
-            })
+            -- vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            --   buffer = event.buf,
+            --   callback = vim.lsp.buf.document_highlight,
+            -- })
 
-            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-              buffer = event.buf,
-              callback = vim.lsp.buf.clear_references,
-            })
+            -- vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+            --   buffer = event.buf,
+            --   callback = vim.lsp.buf.clear_references,
+            -- })
           end
         end,
       })
@@ -292,8 +309,8 @@ require("lazy").setup({
         clangd = {
           filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
         },
+        buf_ls = {},
         gopls = {},
-        tsserver = {},
         rust_analyzer = {},
         basedpyright = {},
         ts_ls = {},
