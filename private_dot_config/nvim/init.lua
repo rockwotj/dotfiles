@@ -314,7 +314,7 @@ require("lazy").setup({
         buf_ls = {},
         gopls = {},
         rust_analyzer = {},
-        basedpyright = {},
+        pyright = {},
         ts_ls = {},
         lua_ls = {
           on_init = function(client)
