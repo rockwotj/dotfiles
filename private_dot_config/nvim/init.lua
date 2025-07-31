@@ -314,7 +314,9 @@ require("lazy").setup({
         buf_ls = {},
         gopls = {},
         rust_analyzer = {},
-        basedpyright = {},
+        basedpyright = {
+          cmd = { 'uvx', 'basedpyright-langserver', '--stdio' },
+        },
         ts_ls = {},
         lua_ls = {
           on_init = function(client)
