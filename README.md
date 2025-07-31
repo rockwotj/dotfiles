@@ -10,5 +10,5 @@ infocmp -x xterm-ghostty | ssh YOUR-SERVER -- tic -x -
 # infocmp -x xterm-ghostty | gcloud compute ssh dev --zone=us-central1-b -- tic -x -
 gh auth login
 (cd ~/.local && python3 -m venv venv && ./venv/bin/pip install pynvim)
-npm install -g neovim
+npm install -g neovim basedpyright
 ```
