@@ -83,6 +83,8 @@ vim.api.nvim_create_autocmd('VimEnter', {
   callback = set_root,
 })
 
+-- Set Python 3 host program for Neovim
+vim.g.python3_host_prog = vim.fn.expand("~/.local/venv/bin/python")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -530,7 +532,7 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'markdown', 'vim', 'vimdoc', 'lua' },
+      ensure_installed = { 'c', 'html', 'markdown', 'vim', 'vimdoc', 'lua' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -555,17 +557,5 @@ require("lazy").setup({
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim" },  -- for curl, log and async functions
-    },
-    build = "make tiktoken",        -- Only on MacOS or Linux
-    opts = {
-      -- See Configuration section for options
-    },
-    -- See Commands section for default commands if you want to lazy load on them
   },
 })
