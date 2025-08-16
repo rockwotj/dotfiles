@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+mkdir -p ~/.local/lib
+[ ! -f ~/.local/lib/copybara_deploy.jar ] && curl -L https://github.com/google/copybara/releases/download/v20250811/copybara_deploy.jar -o ~/.local/lib/copybara_deploy.jar
+exec java -jar ~/.local/lib/copybara_deploy.jar "$@"
