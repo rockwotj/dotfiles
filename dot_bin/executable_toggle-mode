@@ -1,0 +1,62 @@
+#!/bin/bash
+
+STARSHIP_CONFIG="$HOME/.config/starship.toml"
+LSD_CONFIG="$HOME/.zshrc.d/01_ls.sh"
+NVIM_CONFIG="$HOME/.config/nvim/init.lua"
+GIT_CONFIG="$HOME/.gitconfig"
+LATTE="catppuccin_latte"
+FRAPPE="catppuccin_mocha"
+
+# Check if config files exist
+if [[ ! -f "$STARSHIP_CONFIG" ]]; then
+    echo "Error: $STARSHIP_CONFIG not found"
+    exit 1
+fi
+
+if [[ ! -f "$LSD_CONFIG" ]]; then
+    echo "Error: $LSD_CONFIG not found"
+    exit 1
+fi
+
+if [[ ! -f "$NVIM_CONFIG" ]]; then
+    echo "Error: $NVIM_CONFIG not found"
+    exit 1
+fi
+
+if [[ ! -f "$GIT_CONFIG" ]]; then
+    echo "Error: $GIT_CONFIG not found"
+    exit 1
+fi
+
+# Check current palette value in starship config
+current_palette=$(grep -E "^palette\s*=" "$STARSHIP_CONFIG" | sed -E "s/^palette\s*=\s*[\"']?([^\"']+)[\"']?/\1/" | xargs)
+bold=$(tput bold)
+normal=$(tput sgr0)
+
+if [[ "$current_palette" == "$LATTE" ]]; then
+    # Switch to frappe
+    sed -i "s/^palette\s*=.*/palette = \"$FRAPPE\"/" "$STARSHIP_CONFIG"
+    ln -sf "$HOME/.config/lsd/$FRAPPE.yaml" ~/.config/lsd/colors.yaml
+    sed -i "s/vim\.cmd\.colorscheme 'catppuccin-.*'/vim.cmd.colorscheme 'catppuccin-mocha'/" "$NVIM_CONFIG"
+    sed -i "s/light = .*/light = false/" "$GIT_CONFIG"
+    echo "Switched to ${bold}DARK${normal} theme"
+elif [[ "$current_palette" == "$FRAPPE" ]]; then
+    # Switch to latte
+    sed -i "s/^palette\s*=.*/palette = \"$LATTE\"/" "$STARSHIP_CONFIG"
+    ln -sf "$HOME/.config/lsd/$LATTE.yaml" ~/.config/lsd/colors.yaml
+    sed -i "s/vim\.cmd\.colorscheme 'catppuccin-.*'/vim.cmd.colorscheme 'catppuccin-latte'/" "$NVIM_CONFIG"
+    sed -i "s/light = .*/light = true/" "$GIT_CONFIG"
+    echo "Switched to ${bold}LIGHT${normal} theme"
+else
+    echo "Current palette is '$current_palette' - not a recognized Catppuccin theme"
+    echo "Setting to $LATTE"
+    sed -i "s/^palette\s*=.*/palette = \"$LATTE\"/" "$STARSHIP_CONFIG"
+    ln -sf "$HOME/.config/lsd/$LATTE.yaml" ~/.config/lsd/colors.yaml
+    sed -i "s/vim\.cmd\.colorscheme 'catppuccin-.*'/vim.cmd.colorscheme 'catppuccin-latte'/" "$NVIM_CONFIG"
+    sed -i "s/light = .*/light = true/" "$GIT_CONFIG"
+    echo "Switched to ${bold}LIGHT${normal} theme"
+fi
+
+echo "Theme updated across all configs!"
+echo "- Restart your shell or run 'source ~/.zshrc' for terminal changes"
+echo "- Restart Neovim or run ':colorscheme catppuccin-latte' or ':colorscheme catppuccin-mocha' for vim changes"
