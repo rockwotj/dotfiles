@@ -64,25 +64,6 @@ vim.cmd('command! Wq wq')
 vim.cmd('command! Q q')
 vim.cmd('command! X x')
 
--- Root markers: look for these to determine the project root
-local root_names = { '.git', '.vimroot' }
-
--- Function to find and set project root
-local function set_root()
-  local cwd = vim.fn.getcwd()
-  local root_file = vim.fs.find(root_names, { path = cwd, upward = true })[1]
-  if not root_file then return end
-  local root = vim.fs.dirname(root_file)
-  vim.fn.chdir(root)
-  print("Changed directory to project root: " .. root)
-end
-
--- Register on VimEnter (runs only once at startup)
-vim.api.nvim_create_autocmd('VimEnter', {
-  group = vim.api.nvim_create_augroup('MyAutoRoot', { clear = true }),
-  callback = set_root,
-})
-
 -- Set Python 3 host program for Neovim
 vim.g.python3_host_prog = vim.fn.expand("~/.local/venv/bin/python")
 
@@ -127,7 +108,7 @@ require("lazy").setup({
     name = "catppuccin",
     priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'catppuccin-latte'
+      vim.cmd.colorscheme 'catppuccin-mocha'
       vim.cmd.hi 'Comment gui=none'
     end,
   },
@@ -314,8 +295,13 @@ require("lazy").setup({
         buf_ls = {},
         gopls = {},
         rust_analyzer = {},
-        pyright = {},
         ts_ls = {},
+        pyrefly = {
+          cmd = { "uvx", "pyrefly", "lsp" },
+        },
+        ruff = {
+          cmd = { "uvx", "ruff", "server" },
+        },
         lua_ls = {
           on_init = function(client)
             -- otherwise here are default settings for neovim config
@@ -338,9 +324,9 @@ require("lazy").setup({
           }
         },
       }
-      local lspconfig = require 'lspconfig'
       for name, config in pairs(servers) do
-        lspconfig[name].setup(config)
+        vim.lsp.config(name, config)
+        vim.lsp.enable(name)
       end
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -365,7 +351,7 @@ require("lazy").setup({
           vim.keymap.set('n', '<leader>f', function()
             vim.lsp.buf.format { async = true }
           end, opts)
-          vim.keymap.set('n', '<Tab>', '<cmd>ClangdSwitchSourceHeader<cr>', opts)
+          vim.keymap.set('n', '<Tab>', '<cmd>LspClangdSwitchSourceHeader<cr>', opts)
           vim.keymap.set('n', '<leader>d', function() vim.diagnostic.open_float() end, opts)
         end,
       })
@@ -403,21 +389,6 @@ require("lazy").setup({
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
       'petertriho/cmp-git',
-      {
-        "zbirenbaum/copilot-cmp",
-        event = "InsertEnter",
-        config = function() require("copilot_cmp").setup() end,
-        dependencies = {
-          "zbirenbaum/copilot.lua",
-          cmd = "Copilot",
-          config = function()
-            require("copilot").setup({
-              suggestion = { enabled = false },
-              panel = { enabled = false },
-            })
-          end,
-        },
-      },
     },
     config = function()
       local cmp = require 'cmp'
@@ -460,7 +431,6 @@ require("lazy").setup({
           end),
         },
         sources = cmp.config.sources({
-          { name = 'copilot' },
           { name = 'nvim_lsp' },
           { name = 'ultisnips' },
           { name = 'path' },
@@ -508,6 +478,7 @@ require("lazy").setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         bzl = { 'buildifier' },
+        proto = { 'clang-format' },
       },
     },
   },

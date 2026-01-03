@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+
+"""
+Interactive Git Branch Cleanup Script
+Edit the branch list in your editor (like git rebase -i)
+Delete lines or comment them out to keep branches
+"""
+
+import subprocess
+import sys
+import os
+import tempfile
+
+
+def run_command(cmd, capture=True):
+    """Run a shell command and return output"""
+    try:
+        if capture:
+            result = subprocess.run(
+                cmd, shell=True, check=True, capture_output=True, text=True
+            )
+            return result.stdout.strip()
+        else:
+            subprocess.run(cmd, shell=True, check=True)
+            return None
+    except subprocess.CalledProcessError as e:
+        print(f"Error running command: {cmd}")
+        print(e.stderr if capture else "")
+        sys.exit(1)
+
+
+def main():
+    # Check if in git repo
+    try:
+        run_command("git rev-parse --git-dir")
+    except:
+        print("Error: Not a git repository")
+        sys.exit(1)
+
+    # Get current branch
+    current_branch = run_command("git branch --show-current")
+
+    # Get all local branches with metadata
+    branch_info = run_command(
+        "git for-each-ref --sort=-committerdate refs/heads/ "
+        "--format='%(refname:short)|%(committerdate:relative)|%(committername)'"
+    )
+
+    branches = []
+    for line in branch_info.split("\n"):
+        if line:
+            line = line.strip("'")
+            parts = line.split("|")
+            if len(parts) >= 3:
+                branch_name = parts[0]
+                if branch_name != current_branch:
+                    branches.append(
+                        {"name": branch_name, "date": parts[1], "author": parts[2]}
+                    )
+
+    if not branches:
+        print("No branches to clean up (other than current branch)")
+        sys.exit(0)
+
+    # Create temp file with branch list
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".txt", delete=False) as f:
+        temp_file = f.name
+
+        # Write header
+        f.write("# Git Branch Cleanup\n")
+        f.write(f"# Current branch: {current_branch}\n")
+        f.write("#\n")
+        f.write("# Commands:\n")
+        f.write("#  delete (d) = delete the branch\n")
+        f.write("#  keep = keep the branch (or remove/comment the line)\n")
+        f.write("#\n\n")
+
+        # Write branches
+        for b in branches:
+            f.write(f"keep {b['name']:<40} # {b['date']:<20} by {b['author']}\n")
+
+    try:
+        # Open in editor
+        editor = os.environ.get("EDITOR", "vim")
+        subprocess.run([editor, temp_file])
+
+        # Read back the file
+        with open(temp_file, "r") as f:
+            lines = f.readlines()
+
+        # Parse branches to delete
+        branches_to_delete = []
+        for line in lines:
+            line = line.strip()
+            # Skip empty lines and comments
+            if not line or line.startswith("#"):
+                continue
+            # Only process lines starting with 'delete'
+            parts = line.split()
+            if len(parts) >= 2 and parts[0] in ["delete", "d"]:
+                branch_name = parts[1]
+                branches_to_delete.append(branch_name)
+
+        if not branches_to_delete:
+            print("No branches selected for deletion.")
+            sys.exit(0)
+
+        # Show what will be deleted
+        print("\nBranches to delete:")
+        for branch in branches_to_delete:
+            print(f"  - {branch}")
+
+        # Confirm
+        response = input("\nProceed with deletion? (y/N): ")
+        if response.lower() != "y":
+            print("Cancelled.")
+            sys.exit(0)
+
+        # Delete branches
+        print()
+        for branch in branches_to_delete:
+            try:
+                run_command(f"git branch -D {branch}", capture=False)
+                print(f"✓ Deleted {branch}")
+            except:
+                print(f"✗ Failed to delete {branch}")
+
+        print("\nDone!")
+
+    finally:
+        # Clean up temp file
+        if os.path.exists(temp_file):
+            os.unlink(temp_file)
+
+
+if __name__ == "__main__":
+    main()
