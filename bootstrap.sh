@@ -7,4 +7,4 @@ BINDIR=$HOME/.local/bin/ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply ro
 echo '/home/linuxbrew/.linuxbrew/bin/zsh' | sudo tee /etc/shells
 (cd ~/.local && python3 -m venv venv && ./venv/bin/pip install pynvim)
 npm install -g neovim basedpyright
-
+tic -x ./xterm-ghostty.terminfo
