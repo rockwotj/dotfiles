@@ -1,11 +1,11 @@
 #!/bin/bash
 
 sudo apt-get update -y
-sudo apt-get install -y git curl software-properties-common
-# Install neovim 12 (latest stable) from the official PPA
-sudo add-apt-repository -y ppa:neovim-ppa/stable
-sudo apt-get update -y
-sudo apt-get install -y neovim
+sudo apt-get install -y git curl
+
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 
 cp ./bashrc ~/.bashrc
 cp ./gitconfig ~/.gitconfig
