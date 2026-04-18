@@ -1,4 +1,7 @@
-{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $email := env "GIT_AUTHOR_EMAIL" -}}
+{{- if and (not $email) (stdinIsATTY) -}}
+{{-   $email = promptStringOnce . "email" "Email address" -}}
+{{- end -}}
 
 [data]
     email = {{ $email | quote }}

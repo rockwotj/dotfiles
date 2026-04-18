@@ -1,6 +1,3 @@
-# https://github.com/junegunn/fzf?tab=readme-ov-file#respecting-gitignore
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-
 alias vi="nvim"
 alias vim="nvim"
 export EDITOR=nvim
